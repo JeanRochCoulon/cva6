@@ -1,0 +1,288 @@
+ 
+****************************************
+Report : area
+Design : ariane
+Version: Q-2019.12
+Date   : Tue Nov 24 20:13:48 2020
+****************************************
+
+Library(s) Used:
+
+    u055lscee12bdh_108c125_wc (File: /opt/PDK/UMC/UMC55/common/stdcells/G-9LT-EFLASH_EE2PROM55N-LP_SPLIT_GATE_UM055LSCEE12BDH-LIBRARY_TAPE_OUT_KIT-Ver.B02_PB/synopsys/u055lscee12bdh_108c125_wc.db)
+
+Number of ports:                        77469
+Number of nets:                        263031
+Number of cells:                       200760
+Number of combinational cells:         175931
+Number of sequential cells:             24362
+Number of macros/black boxes:               0
+Number of buf/inv:                      29445
+Number of references:                      13
+
+Combinational area:             338638.158887
+Buf/Inv area:                    30848.719436
+Noncombinational area:          162096.761379
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                500734.920267
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black-
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  ---------------------------------------------------------
+ariane                            500734.9203    100.0      69.4400       0.0000  0.0000  ariane
+commit_stage_i                       857.0800      0.2     857.0800       0.0000  0.0000  commit_stage_1
+controller_i                          37.5200      0.0      37.5200       0.0000  0.0000  controller
+csr_regfile_i                      23790.2000      4.8   12055.9599   11734.2400  0.0000  csr_regfile_0000000000000000_16_2_00000008
+ex_stage_i                        248294.7597     49.6    1911.5600     691.3200  0.0000  ex_stage_16
+ex_stage_i/alu_i                    4062.2400      0.8    4062.2400       0.0000  0.0000  alu
+ex_stage_i/branch_unit_i            1942.0800      0.4    1942.0800       0.0000  0.0000  branch_unit
+ex_stage_i/csr_buffer_i              218.1200      0.0      77.8400     140.2800  0.0000  csr_buffer
+ex_stage_i/fpu_gen_fpu_i           96650.9602     19.3    1448.7200    1365.2800  0.0000  fpu_wrap
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk  93836.9602    18.7    161.2800      0.0000 0.0000 fpnew_top_00000020383
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block  61406.5201    12.3     12.6000      0.0000 0.0000 fpnew_opgroup_block_0_00000040_0_18_3_155_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice  15249.9200     3.0     97.1600      0.0000 0.0000 fpnew_opgroup_fmt_slice_0_0_00000040_0_00000002_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma  15152.7600     3.0  12116.1600   2197.4400 0.0000 fpnew_fma_0_00000002_3__logic_Z_1yB_
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_class_inputs    201.0400     0.0    201.0400      0.0000 0.0000 fpnew_classifier_0_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_fpnew_rounding    332.3600     0.1    332.3600      0.0000 0.0000 fpnew_rounding_0000001f
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_lzc    305.7600     0.1    305.7600      0.0000 0.0000 lzc_00000033_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice  45867.0801     9.2     96.3200      0.0000 0.0000 fpnew_opgroup_fmt_slice_0_1_00000040_0_00000003_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma  45770.7601     9.1  39685.2401   4450.0400 0.0000 fpnew_fma_1_00000003_3__logic_Z_1yB_
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_class_inputs    407.6800     0.1    407.6800      0.0000 0.0000 fpnew_classifier_1_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_fpnew_rounding    609.8400     0.1    609.8400      0.0000 0.0000 fpnew_rounding_0000003f
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fma/i_lzc    617.9600     0.1    617.9600      0.0000 0.0000 lzc_0000006d_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_0__i_opgroup_block/i_arbiter    276.9200     0.1    257.6000     19.3200 0.0000 rr_arb_tree_00000005_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block  18148.4800     3.6      3.9200      0.0000 0.0000 fpnew_opgroup_block_1_00000040_0_18_3_2aa_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice  18037.3200     3.6    124.6000      0.0000 0.0000 fpnew_opgroup_multifmt_slice_1_00000040_18_3_0_00000002_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi  17912.7200     3.6   1081.0800   1868.1600 0.0000 fpnew_divsqrt_multi_18_00000002_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei  14963.4800     3.0      1.1200      0.0000 0.0000 div_sqrt_top_mvp
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/fpu_norm_u0   2752.4000     0.5   2752.4000      0.0000 0.0000 norm_div_sqrt_mvp
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/nrbd_nrsc_u0   7918.9600     1.6      0.0000      0.0000 0.0000 nrbd_nrsc_mvp
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/nrbd_nrsc_u0/control_u0   7918.9600     1.6   3452.4000   1313.7600 0.0000 control_mvp
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/nrbd_nrsc_u0/control_u0/genblk4_0__iteration_div_sqrt    990.3600     0.2    990.3600      0.0000 0.0000 iteration_div_sqrt_mvp_1_2
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/nrbd_nrsc_u0/control_u0/genblk4_1__iteration_div_sqrt   1090.0400     0.2   1090.0400      0.0000 0.0000 iteration_div_sqrt_mvp_1_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/nrbd_nrsc_u0/control_u0/genblk4_2__iteration_div_sqrt   1072.4000     0.2   1072.4000      0.0000 0.0000 iteration_div_sqrt_mvp_1_0
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/preprocess_u0   4291.0000     0.9   2546.0400   1377.3200 0.0000 preprocess_mvp
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/preprocess_u0/lod_ua    183.4000     0.0    183.4000      0.0000 0.0000 lzc_2_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_divsqrt_multi/i_divsqrt_lei/preprocess_u0/lod_ub    184.2400     0.0    184.2400      0.0000 0.0000 lzc_2_0
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_1__i_opgroup_block/i_arbiter    107.2400     0.0    107.2400      0.0000 0.0000 rr_arb_tree_00000005_1_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block   4105.0800     0.8     14.2800      0.0000 0.0000 fpnew_opgroup_block_2_00000040_0_18_3_155_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice   1426.0400     0.3    115.9200      0.0000 0.0000 fpnew_opgroup_fmt_slice_2_0_00000040_0_00000001_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_noncomp   1310.1200     0.3    717.6400    502.3200 0.0000 fpnew_noncomp_0_00000001_3__logic_Z_1yB_
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_0__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_noncomp/i_class_a     90.1600     0.0     90.1600      0.0000 0.0000 fpnew_classifier_0_2
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice   2426.7600     0.5    155.4000      0.0000 0.0000 fpnew_opgroup_fmt_slice_2_1_00000040_0_00000001_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_noncomp   2271.3600     0.5   1222.7600    908.0400 0.0000 fpnew_noncomp_1_00000001_3__logic_Z_1yB_
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/gen_parallel_slices_1__active_format_i_fmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_noncomp/i_class_a    140.5600     0.0    140.5600      0.0000 0.0000 fpnew_classifier_1_2
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_2__i_opgroup_block/i_arbiter    238.0000     0.0    218.6800     19.3200 0.0000 rr_arb_tree_00000005_1_2
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block   9333.5200     1.9      3.9200      0.0000 0.0000 fpnew_opgroup_block_3_00000040_0_18_3_2aa_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice   9160.2000     1.8    205.2400      0.0000 0.0000 fpnew_opgroup_multifmt_slice_3_00000040_18_3_0_00000002_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_cast_multi   8954.9600     1.8   5890.6400   2016.8401 0.0000 fpnew_cast_multi_18_3_00000002_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_cast_multi/fmt_init_inputs_0__active_format_i_fpnew_classifier     52.6400     0.0     52.6400      0.0000 0.0000 fpnew_classifier_0_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_cast_multi/fmt_init_inputs_1__active_format_i_fpnew_classifier     84.5600     0.0     84.5600      0.0000 0.0000 fpnew_classifier_1_1
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_cast_multi/i_fpnew_rounding    667.8000     0.1    667.8000      0.0000 0.0000 fpnew_rounding_00000040
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/gen_merged_slice_i_multifmt_slice/gen_num_lanes_0__active_lane_lane_instance_i_fpnew_cast_multi/i_lzc    242.4800     0.0    242.4800      0.0000 0.0000 lzc_1_0
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/gen_operation_groups_3__i_opgroup_block/i_arbiter    169.4000     0.0    169.4000      0.0000 0.0000 rr_arb_tree_00000005_1_3
+ex_stage_i/fpu_gen_fpu_i/fpu_gen_i_fpnew_bulk/i_arbiter    682.0800     0.1    669.2000     12.8800 0.0000 rr_arb_tree_00000004_1
+ex_stage_i/i_mult                  31274.3198      6.2     517.4400       6.4400  0.0000  mult
+ex_stage_i/i_mult/i_div             6730.6400      1.3    4890.2000    1349.3200  0.0000  serdiv_1
+ex_stage_i/i_mult/i_div/i_lzc_a      239.4000      0.0     239.4000       0.0000  0.0000  lzc_1_2
+ex_stage_i/i_mult/i_div/i_lzc_b      251.7200      0.1     251.7200       0.0000  0.0000  lzc_1_1
+ex_stage_i/i_mult/i_multiplier     24019.7999      4.8   23124.0799     895.7200  0.0000  multiplier
+ex_stage_i/lsu_i                  111544.1596     22.3    1274.2800       0.0000  0.0000  load_store_unit_00000010
+ex_stage_i/lsu_i/i_load_unit        1764.8400      0.4    1622.0400     142.8000  0.0000  load_unit_
+ex_stage_i/lsu_i/i_mmu             89403.4395     17.9    2175.0400    1191.6800  0.0000  mmu_16_16_00000010
+ex_stage_i/lsu_i/i_mmu/i_dtlb      24871.2799      5.0   13440.2798   11431.0001  0.0000  tlb_00000010_00000010_0
+ex_stage_i/lsu_i/i_mmu/i_itlb      25022.4799      5.0   13591.4798   11431.0001  0.0000  tlb_00000010_00000010_1
+ex_stage_i/lsu_i/i_mmu/i_pmp_data  15925.5599      3.2     379.9600       0.0000  0.0000  pmp_56_54_00000008_1
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_0__i_pmp_entry   1596.0000     0.3   1117.7600      0.0000 0.0000 pmp_entry_00000038_00000036_15
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_0__i_pmp_entry/i_lzc    478.2400     0.1    478.2400      0.0000 0.0000 lzc_00000038_0_15
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_1__i_pmp_entry   1919.9600     0.4   1410.9200      0.0000 0.0000 pmp_entry_00000038_00000036_14
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_1__i_pmp_entry/i_lzc    509.0400     0.1    509.0400      0.0000 0.0000 lzc_00000038_0_14
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_2__i_pmp_entry   1852.7600     0.4   1389.9200      0.0000 0.0000 pmp_entry_00000038_00000036_13
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_2__i_pmp_entry/i_lzc    462.8400     0.1    462.8400      0.0000 0.0000 lzc_00000038_0_13
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_3__i_pmp_entry   2057.7200     0.4   1504.7200      0.0000 0.0000 pmp_entry_00000038_00000036_12
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_3__i_pmp_entry/i_lzc    553.0000     0.1    553.0000      0.0000 0.0000 lzc_00000038_0_12
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_4__i_pmp_entry   1997.5200     0.4   1465.2400      0.0000 0.0000 pmp_entry_00000038_00000036_11
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_4__i_pmp_entry/i_lzc    532.2800     0.1    532.2800      0.0000 0.0000 lzc_00000038_0_11
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_5__i_pmp_entry   2079.2800     0.4   1490.7200      0.0000 0.0000 pmp_entry_00000038_00000036_10
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_5__i_pmp_entry/i_lzc    588.5600     0.1    588.5600      0.0000 0.0000 lzc_00000038_0_10
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_6__i_pmp_entry   2118.4800     0.4   1485.6800      0.0000 0.0000 pmp_entry_00000038_00000036_9
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_6__i_pmp_entry/i_lzc    632.8000     0.1    632.8000      0.0000 0.0000 lzc_00000038_0_9
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_7__i_pmp_entry   1923.8800     0.4   1404.2000      0.0000 0.0000 pmp_entry_00000038_00000036_8
+ex_stage_i/lsu_i/i_mmu/i_pmp_data/gen_pmp_genblk1_7__i_pmp_entry/i_lzc    519.6800     0.1    519.6800      0.0000 0.0000 lzc_00000038_0_8
+ex_stage_i/lsu_i/i_mmu/i_pmp_if     9245.5999      1.8      89.3200       0.0000  0.0000  pmp_56_54_00000008_2
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_0__i_pmp_entry    876.6800     0.2    682.9200      0.0000 0.0000 pmp_entry_00000038_00000036_23
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_0__i_pmp_entry/i_lzc    193.7600     0.0    193.7600      0.0000 0.0000 lzc_00000038_0_23
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_1__i_pmp_entry   1167.3200     0.2    987.5600      0.0000 0.0000 pmp_entry_00000038_00000036_22
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_1__i_pmp_entry/i_lzc    179.7600     0.0    179.7600      0.0000 0.0000 lzc_00000038_0_22
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_2__i_pmp_entry   1175.4400     0.2    985.8800      0.0000 0.0000 pmp_entry_00000038_00000036_21
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_2__i_pmp_entry/i_lzc    189.5600     0.0    189.5600      0.0000 0.0000 lzc_00000038_0_21
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_3__i_pmp_entry   1182.1600     0.2    992.6000      0.0000 0.0000 pmp_entry_00000038_00000036_20
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_3__i_pmp_entry/i_lzc    189.5600     0.0    189.5600      0.0000 0.0000 lzc_00000038_0_20
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_4__i_pmp_entry   1187.7600     0.2   1000.7200      0.0000 0.0000 pmp_entry_00000038_00000036_19
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_4__i_pmp_entry/i_lzc    187.0400     0.0    187.0400      0.0000 0.0000 lzc_00000038_0_19
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_5__i_pmp_entry   1201.7600     0.2   1009.6800      0.0000 0.0000 pmp_entry_00000038_00000036_18
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_5__i_pmp_entry/i_lzc    192.0800     0.0    192.0800      0.0000 0.0000 lzc_00000038_0_18
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_6__i_pmp_entry   1192.8000     0.2   1003.8000      0.0000 0.0000 pmp_entry_00000038_00000036_17
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_6__i_pmp_entry/i_lzc    189.0000     0.0    189.0000      0.0000 0.0000 lzc_00000038_0_17
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_7__i_pmp_entry   1172.3600     0.2    990.3600      0.0000 0.0000 pmp_entry_00000038_00000036_16
+ex_stage_i/lsu_i/i_mmu/i_pmp_if/gen_pmp_genblk1_7__i_pmp_entry/i_lzc    182.0000     0.0    182.0000      0.0000 0.0000 lzc_00000038_0_16
+ex_stage_i/lsu_i/i_mmu/i_ptw       10971.7999      2.2     916.7200    1326.6400  0.0000  ptw_s00000010
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw   8728.4399     1.7     83.1600      0.0000 0.0000 pmp_56_54_00000008_0
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_0__i_pmp_entry    875.8400     0.2    679.5600      0.0000 0.0000 pmp_entry_00000038_00000036_7
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_0__i_pmp_entry/i_lzc    196.2800     0.0    196.2800      0.0000 0.0000 lzc_00000038_0_7
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_1__i_pmp_entry   1122.2400     0.2    928.2000      0.0000 0.0000 pmp_entry_00000038_00000036_6
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_1__i_pmp_entry/i_lzc    194.0400     0.0    194.0400      0.0000 0.0000 lzc_00000038_0_6
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_2__i_pmp_entry   1122.5200     0.2    927.9200      0.0000 0.0000 pmp_entry_00000038_00000036_5
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_2__i_pmp_entry/i_lzc    194.6000     0.0    194.6000      0.0000 0.0000 lzc_00000038_0_5
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_3__i_pmp_entry   1115.5200     0.2    931.8400      0.0000 0.0000 pmp_entry_00000038_00000036_4
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_3__i_pmp_entry/i_lzc    183.6800     0.0    183.6800      0.0000 0.0000 lzc_00000038_0_4
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_4__i_pmp_entry   1109.0800     0.2    927.6400      0.0000 0.0000 pmp_entry_00000038_00000036_3
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_4__i_pmp_entry/i_lzc    181.4400     0.0    181.4400      0.0000 0.0000 lzc_00000038_0_3
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_5__i_pmp_entry   1111.8800     0.2    926.5200      0.0000 0.0000 pmp_entry_00000038_00000036_2
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_5__i_pmp_entry/i_lzc    185.3600     0.0    185.3600      0.0000 0.0000 lzc_00000038_0_2
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_6__i_pmp_entry   1098.4400     0.2    921.2000      0.0000 0.0000 pmp_entry_00000038_00000036_1
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_6__i_pmp_entry/i_lzc    177.2400     0.0    177.2400      0.0000 0.0000 lzc_00000038_0_1
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_7__i_pmp_entry   1089.7600     0.2    916.1600      0.0000 0.0000 pmp_entry_00000038_00000036_0
+ex_stage_i/lsu_i/i_mmu/i_ptw/i_pmp_ptw/gen_pmp_genblk1_7__i_pmp_entry/i_lzc    173.6000     0.0    173.6000      0.0000 0.0000 lzc_00000038_0_0
+ex_stage_i/lsu_i/i_pipe_reg_load     889.2800      0.2       7.0000     882.2800  0.0000  shift_reg_00000001
+ex_stage_i/lsu_i/i_pipe_reg_store     83.1600      0.0      83.1600       0.0000  0.0000  shift_reg_00000000
+ex_stage_i/lsu_i/i_store_unit      14316.6801      2.9    1008.8400     534.5200  0.0000  store_unit
+ex_stage_i/lsu_i/i_store_unit/i_amo_buffer   1248.8000     0.2      3.6400      0.0000 0.0000 amo_buffer
+ex_stage_i/lsu_i/i_store_unit/i_amo_buffer/i_amo_fifo   1245.1600     0.2    420.8400    824.3200 0.0000 fifo_v3_1
+ex_stage_i/lsu_i/i_store_unit/store_buffer_i  11524.5200     2.3   4691.6800   6832.8401 0.0000 store_buffer
+ex_stage_i/lsu_i/lsu_bypass_i       3812.4800      0.8    1841.8400    1970.6400  0.0000  lsu_bypass
+i_cache_subsystem                  52238.2002     10.4       1.1200       0.0000  0.0000  wt_cache_subsystem_
+i_cache_subsystem/i_adapter         8494.9200      1.7    1299.7600    1810.4800  0.0000  wt_axi_adapter
+i_cache_subsystem/i_adapter/i_axi_shim    374.9200     0.1    355.6000     19.3200 0.0000 axi_shim_00000002_4
+i_cache_subsystem/i_adapter/i_b_fifo    319.4800     0.1    145.6000    173.8800  0.0000  fifo_v3_1_5_00000004
+i_cache_subsystem/i_adapter/i_dcache_data_fifo   2897.1600     0.6   1131.4800   1765.6800 0.0000 fifo_v3_00000002_1
+i_cache_subsystem/i_adapter/i_icache_data_fifo   1345.4000     0.3    598.3600    747.0400 0.0000 fifo_v3_00000002
+i_cache_subsystem/i_adapter/i_rd_dcache_id    177.8000     0.0     81.2000     96.6000 0.0000 fifo_v3_2_00000004_1
+i_cache_subsystem/i_adapter/i_rd_icache_id     48.1600     0.0     28.8400     19.3200 0.0000 fifo_v3_2_00000004_2
+i_cache_subsystem/i_adapter/i_rr_arb_tree     43.9600     0.0     18.2000     25.7600 0.0000 rr_arb_tree_2_1_1_1
+i_cache_subsystem/i_adapter/i_wr_dcache_id    177.8000     0.0     81.2000     96.6000 0.0000 fifo_v3_2_00000004_0
+i_cache_subsystem/i_cva6_icache     3441.4800      0.7    2460.6400     869.9600  0.0000  cva6_icache_0
+i_cache_subsystem/i_cva6_icache/i_lfsr     98.0000     0.0     22.1200     75.8800 0.0000 lfsr_8bit_00000004
+i_cache_subsystem/i_cva6_icache/i_lzc      5.8800     0.0      5.8800      0.0000 0.0000  lzc_00000004_1
+i_cache_subsystem/i_cva6_icache/i_lzc_hit      7.0000     0.0      7.0000      0.0000 0.0000 lzc_00000004_0
+i_cache_subsystem/i_wt_dcache      40300.6802      8.0      18.4800       0.0000  0.0000  wt_dcache_1
+i_cache_subsystem/i_wt_dcache/gen_rd_ports_0__i_wt_dcache_ctrl    833.2800     0.2    395.3600    437.9200 0.0000 wt_dcache_ctrl_1_1
+i_cache_subsystem/i_wt_dcache/gen_rd_ports_1__i_wt_dcache_ctrl   1562.6800     0.3   1105.4400    457.2400 0.0000 wt_dcache_ctrl_1_0
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem  12756.2400     2.5  12505.6400     77.2800 0.0000 wt_dcache_mem_1_3
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_lzc_rd_hit     58.5200     0.0     58.5200      0.0000 0.0000 lzc_00000008_0
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_lzc_wbuffer_hit     77.2800     0.0     77.2800      0.0000 0.0000 lzc_00000008_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_rr_arb_tree     37.5200     0.0     24.6400     12.8800 0.0000 rr_arb_tree_00000003_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit   3699.0800     0.7   2515.5200    547.9600 0.0000 wt_dcache_missunit_1_1_3
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/i_exp_backoff    509.3200     0.1    200.2000    309.1200 0.0000 exp_backoff_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/i_lfsr_inv    104.7200     0.0     44.2400     60.4800 0.0000 lfsr_8bit_00000008
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/i_lzc_inv     17.0800     0.0     17.0800      0.0000 0.0000 lzc_00000008_5
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/i_lzc_reqs      4.4800     0.0      4.4800      0.0000 0.0000 lzc_00000003
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer  21430.9202     4.3   9291.8001   8491.5601 0.0000 wt_dcache_wbuffer_
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr   1579.7600     0.3   1560.4400     19.3200 0.0000 rr_arb_tree_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_dirty_rr   1719.4800     0.3   1642.2000     77.2800 0.0000 rr_arb_tree_8_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_hit_lzc     17.9200     0.0     17.9200      0.0000 0.0000 lzc_00000008_2
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo    203.5600     0.0    106.9600     96.6000 0.0000 fifo_v3_0_2_4
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_tx_id_rr     87.9200     0.0     42.8400     45.0800 0.0000 rr_arb_tree_4_1_1
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_vld_bdirty     21.8400     0.0     21.8400      0.0000 0.0000 lzc_00000008_4
+i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_vld_lzc     17.0800     0.0     17.0800      0.0000 0.0000 lzc_00000008_3
+i_frontend                         49468.7201      9.9    4791.0800    1755.0400  0.0000  frontend_
+i_frontend/gen_instr_scan_0__i_instr_scan    205.5200     0.0    205.5200      0.0000 0.0000 instr_scan_1
+i_frontend/gen_instr_scan_1__i_instr_scan    126.8400     0.0    126.8400      0.0000 0.0000 instr_scan_0
+i_frontend/i_bht                    4456.4800      0.9    1983.5200    2472.9600  0.0000  bht_1
+i_frontend/i_btb                   22353.2401      4.5    8958.0399   13395.2001  0.0000  btb_1
+i_frontend/i_instr_queue           13322.1201      2.7    1465.5200     446.3200  0.0000  instr_queue
+i_frontend/i_instr_queue/gen_instr_fifo_0__i_fifo_instr_data   4270.2800     0.9   1620.6400   2649.6400 0.0000 fifo_v3_00000004_1
+i_frontend/i_instr_queue/gen_instr_fifo_1__i_fifo_instr_data   4267.4800     0.9   1620.6400   2646.8400 0.0000 fifo_v3_00000004_0
+i_frontend/i_instr_queue/i_fifo_address   2867.2000     0.6   1173.4800   1693.7200 0.0000 fifo_v3_64_00000004
+i_frontend/i_instr_queue/i_lzc_branch_index      1.9600     0.0      1.9600      0.0000 0.0000 lzc_00000002_0
+i_frontend/i_instr_queue/i_popcount      3.3600     0.0      3.3600       0.0000  0.0000  popcount_00000002_1
+i_frontend/i_instr_realign          1211.2800      0.2     694.4000     516.8800  0.0000  instr_realign
+i_frontend/i_ras                    1247.1200      0.2     409.9200     837.2000  0.0000  ras_1
+i_perf_counters                    15307.3199      3.1    9524.1999    5783.1200  0.0000  perf_counters
+id_stage_i                          4751.6000      0.9     782.3200    2451.9600  0.0000  id_stage
+id_stage_i/compressed_decoder_i      331.5200      0.1     331.5200       0.0000  0.0000  compressed_decoder
+id_stage_i/decoder_i                1185.8000      0.2    1185.8000       0.0000  0.0000  decoder
+issue_stage_i                     105920.0804     21.2       4.4800       0.0000  0.0000  issue_stage_1
+issue_stage_i/i_issue_read_operands  60367.7201    12.1   2570.9600    2271.9200  0.0000  issue_read_operands_00000002
+issue_stage_i/i_issue_read_operands/float_regfile_gen_i_ariane_fp_regfile  30130.8000     6.0  16941.6799  13189.1201 0.0000 ariane_regfile_64_3_00000002_0
+issue_stage_i/i_issue_read_operands/i_ariane_regfile  25394.0400     5.1  12617.0799  12776.9601 0.0000 ariane_regfile_64_2_00000002_1
+issue_stage_i/i_re_name              372.1200      0.1     372.1200       0.0000  0.0000  re_name
+issue_stage_i/i_scoreboard         45175.7603      9.0   22268.6801   15440.8801  0.0000  scoreboard_00000008_00000004_00000002
+issue_stage_i/i_scoreboard/gen_sel_clobbers_0__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_126
+issue_stage_i/i_scoreboard/gen_sel_clobbers_10__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_106
+issue_stage_i/i_scoreboard/gen_sel_clobbers_10__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_107
+issue_stage_i/i_scoreboard/gen_sel_clobbers_11__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_104
+issue_stage_i/i_scoreboard/gen_sel_clobbers_11__i_sel_gpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_105
+issue_stage_i/i_scoreboard/gen_sel_clobbers_12__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_102
+issue_stage_i/i_scoreboard/gen_sel_clobbers_12__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_103
+issue_stage_i/i_scoreboard/gen_sel_clobbers_13__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_100
+issue_stage_i/i_scoreboard/gen_sel_clobbers_13__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_101
+issue_stage_i/i_scoreboard/gen_sel_clobbers_14__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_98
+issue_stage_i/i_scoreboard/gen_sel_clobbers_14__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_99
+issue_stage_i/i_scoreboard/gen_sel_clobbers_15__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_96
+issue_stage_i/i_scoreboard/gen_sel_clobbers_15__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_97
+issue_stage_i/i_scoreboard/gen_sel_clobbers_16__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_94
+issue_stage_i/i_scoreboard/gen_sel_clobbers_16__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_95
+issue_stage_i/i_scoreboard/gen_sel_clobbers_17__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_92
+issue_stage_i/i_scoreboard/gen_sel_clobbers_17__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_93
+issue_stage_i/i_scoreboard/gen_sel_clobbers_18__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_90
+issue_stage_i/i_scoreboard/gen_sel_clobbers_18__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_91
+issue_stage_i/i_scoreboard/gen_sel_clobbers_19__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_88
+issue_stage_i/i_scoreboard/gen_sel_clobbers_19__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_89
+issue_stage_i/i_scoreboard/gen_sel_clobbers_1__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_124
+issue_stage_i/i_scoreboard/gen_sel_clobbers_1__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_125
+issue_stage_i/i_scoreboard/gen_sel_clobbers_20__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_86
+issue_stage_i/i_scoreboard/gen_sel_clobbers_20__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_87
+issue_stage_i/i_scoreboard/gen_sel_clobbers_21__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_84
+issue_stage_i/i_scoreboard/gen_sel_clobbers_21__i_sel_gpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_85
+issue_stage_i/i_scoreboard/gen_sel_clobbers_22__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_82
+issue_stage_i/i_scoreboard/gen_sel_clobbers_22__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_83
+issue_stage_i/i_scoreboard/gen_sel_clobbers_23__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_80
+issue_stage_i/i_scoreboard/gen_sel_clobbers_23__i_sel_gpr_clobbers     66.6400     0.0     66.6400      0.0000 0.0000 rr_arb_tree_00000009_1_1_81
+issue_stage_i/i_scoreboard/gen_sel_clobbers_24__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_78
+issue_stage_i/i_scoreboard/gen_sel_clobbers_24__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_79
+issue_stage_i/i_scoreboard/gen_sel_clobbers_25__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_76
+issue_stage_i/i_scoreboard/gen_sel_clobbers_25__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_77
+issue_stage_i/i_scoreboard/gen_sel_clobbers_26__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_74
+issue_stage_i/i_scoreboard/gen_sel_clobbers_26__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_75
+issue_stage_i/i_scoreboard/gen_sel_clobbers_27__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_72
+issue_stage_i/i_scoreboard/gen_sel_clobbers_27__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_73
+issue_stage_i/i_scoreboard/gen_sel_clobbers_28__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_70
+issue_stage_i/i_scoreboard/gen_sel_clobbers_28__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_71
+issue_stage_i/i_scoreboard/gen_sel_clobbers_29__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_68
+issue_stage_i/i_scoreboard/gen_sel_clobbers_29__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_69
+issue_stage_i/i_scoreboard/gen_sel_clobbers_2__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_122
+issue_stage_i/i_scoreboard/gen_sel_clobbers_2__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_123
+issue_stage_i/i_scoreboard/gen_sel_clobbers_30__i_sel_fpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_66
+issue_stage_i/i_scoreboard/gen_sel_clobbers_30__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_67
+issue_stage_i/i_scoreboard/gen_sel_clobbers_31__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_64
+issue_stage_i/i_scoreboard/gen_sel_clobbers_31__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_65
+issue_stage_i/i_scoreboard/gen_sel_clobbers_3__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_120
+issue_stage_i/i_scoreboard/gen_sel_clobbers_3__i_sel_gpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_121
+issue_stage_i/i_scoreboard/gen_sel_clobbers_4__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_118
+issue_stage_i/i_scoreboard/gen_sel_clobbers_4__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_119
+issue_stage_i/i_scoreboard/gen_sel_clobbers_5__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_116
+issue_stage_i/i_scoreboard/gen_sel_clobbers_5__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_117
+issue_stage_i/i_scoreboard/gen_sel_clobbers_6__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_114
+issue_stage_i/i_scoreboard/gen_sel_clobbers_6__i_sel_gpr_clobbers     66.3600     0.0     66.3600      0.0000 0.0000 rr_arb_tree_00000009_1_1_115
+issue_stage_i/i_scoreboard/gen_sel_clobbers_7__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_112
+issue_stage_i/i_scoreboard/gen_sel_clobbers_7__i_sel_gpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_113
+issue_stage_i/i_scoreboard/gen_sel_clobbers_8__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_110
+issue_stage_i/i_scoreboard/gen_sel_clobbers_8__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_111
+issue_stage_i/i_scoreboard/gen_sel_clobbers_9__i_sel_fpr_clobbers     66.0800     0.0     66.0800      0.0000 0.0000 rr_arb_tree_00000009_1_1_108
+issue_stage_i/i_scoreboard/gen_sel_clobbers_9__i_sel_gpr_clobbers     65.8000     0.0     65.8000      0.0000 0.0000 rr_arb_tree_00000009_1_1_109
+issue_stage_i/i_scoreboard/i_popcount      3.3600     0.0      3.3600      0.0000 0.0000  popcount_00000002_0
+issue_stage_i/i_scoreboard/i_sel_rs1   1153.8800     0.2   1153.8800      0.0000  0.0000  rr_arb_tree_0000000c_64_1_1_2
+issue_stage_i/i_scoreboard/i_sel_rs2   1078.2800     0.2   1078.2800      0.0000  0.0000  rr_arb_tree_0000000c_64_1_1_1
+issue_stage_i/i_scoreboard/i_sel_rs3   1069.0400     0.2   1069.0400      0.0000  0.0000  rr_arb_tree_0000000c_64_1_1_0
+--------------------------------  -----------  -------  -----------  -----------  ------  ---------------------------------------------------------
+Total                                                   338638.1589  162096.7614  0.0000
+
+1

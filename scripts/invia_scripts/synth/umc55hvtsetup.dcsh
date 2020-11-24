@@ -1,0 +1,34 @@
+#-------------------------------------------------------------------------------
+#-                                                                            --
+#-                      Copyright (C) 2010-2015 INVIA                         --
+#-                                                                            --
+#-   All rights reserved. Reproduction in whole or part is prohibited         --
+#-      without the written permission of the copyright owner                 --
+#-                                                                            --
+#-------------------------------------------------------------------------------
+#- Author: Y. GUILLEMENET - INVIA
+#- Revision : 
+#- Date     : 
+#- Description: File used by Design Compiler when techno is set to UMC55HVT
+#-------------------------------------------------------------------------------
+
+#add search path
+set search_path [concat ~/SYNOPSYS/UMC55/HVT/ $search_path /opt/technos/UMC55/HVT/]
+
+if {$link_library == ""} {
+set link_library [concat ${TECH_REV}_108c125_wc.db ${TECH_REV}_108c-40_wc.db ]
+} else {
+set link_library [concat $link_library  ${TECH_REV}_108c125_wc.db ${TECH_REV}_108c-40_wc.db ]
+}
+
+if {$target_library == ""} {
+set target_library [concat ${TECH_REV}_108c125_wc.db ${TECH_REV}_108c-40_wc.db ]
+} else {
+set target_library [concat $target_library ${TECH_REV}_108c125_wc.db ${TECH_REV}_108c-40_wc.db ]
+}
+
+if {$symbol_library == ""} {
+set symbol_library [concat ${TECH_REV}.sdb ]
+} else {
+set symbol_library [concat $symbol_library ${TECH_REV}.sdb ]
+}
