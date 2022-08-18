@@ -1,5 +1,5 @@
 =========================
-CVA6 design specification
+CV32A6-step1 design specification
 =========================
 
 Revision 0.1
@@ -26,9 +26,43 @@ License
 
 Introduction
 ============
+CVA6 is a 6-stage in-order and single issue processor core which implements the RISC-V instruction set. CVA6 can be configured as a 32- or 64-bit core (RV32 or RV64), called CV32A6 or CV64A6. The purpose of this document is to describe a CV32A6 configuration with CV-X-IF without Linux support, called CV32A6-step1.
+
+This document is dedicated to designers and verificators.
+
 
 Processor Overview
 ==================
+CV32A6-step1 implements extensions as specified in Volume I: User-Level ISA V 2.1 as well as the privilege extension 1.10.
+
+CV32A6-step1 implements the following configuration:
+
+- RV32i
+
+- M extension
+
+- C extension
+
+- No A extension
+
+- No F and no D extensions
+
+- Privilege modes: M, S and U
+
+- Coprocessor interface, called CV-X-IF
+
+- Instruction cache
+
+- No Data cache
+
+- No MMU
+
+- No memory protection unit, called PMP
+
+- No register renaming, called Remane
+
+- No performance counters
+
 
 Frontend
 ========
