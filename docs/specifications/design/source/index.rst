@@ -15,16 +15,13 @@
 
    SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0
 
-OpenHW Group CV32E40P User Manual
-=================================
-Editor: **Davide Schiavone**
-`davide@openhwgroup.org <mailto:davide@openhwgroup.org?subject=CV32E40P%20User%20Manual>`__
+OpenHW Group CV32A6-step1 Design specification
+==============================================
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
 
-   preface
    intro
    processor
    frontend
