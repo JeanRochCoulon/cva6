@@ -84,13 +84,15 @@ PC gen to generate the next program counter.
 
 All program counters are logical addressed. If the logical to physical mapping changes a fence.vm instruction should flush the pipeline and TLBs.
 
-This stage contains speculation on the branch target address. It houses the branch target buffer (BTB) and a branch history table (BHT). If the BTB decodes a certain PC as a jump the BHT decides if the branch is taken or not.
+This stage contains speculation on the branch target address. It houses the branch target buffer (BTB), a branch history table (BHT) and a Return Address Stack (RAS).
 
 The next PC can originate from the following sources (listed in order of precedence):
 
-* **Default assignment:** The default assignment is to fetch PC + 4. PC Gen always fetches on a word boundary (32-bit). Compressed instructions are handled in a later pipeline step.
+* **Reset state:** At reset, the PC is assigned to a constant.
 
-* **Branch Predict:** If the BHT and BTB predict a branch on a certain PC, PC Gen sets the next PC to the predicted address and also informs the IF stage that it performed a prediction on the PC. This is needed in various places further down the pipeline (for example to correct prediction). Branch information which is passed down the pipeline is encapsulated in a structure called branchpredict_sbe_t. In contrast to branch prediction information which is passed up the pipeline which is just called bp_resolve_t. This is used for corrective actions (see next bullet point). This naming convention should make it easy to detect the flow of branch information in the source code.
+* **Branch Predict:** Branch can be predicted in the following cases: JALR instruction is pre-decoded and BTB speculates a PC jump, Branch instruction is pre-decoded and BTH speculates a PC jump, RET instruction is pre-decoded and RAS speculates the target address. In that case, PC Gen sets the next PC to the predicted address and also informs the Fetch stage that it performed a prediction on the PC.
+
+* **Default assignment:** The default assignment is to fetch PC + 4. PC Gen always fetches on a word boundary (32-bit). Compressed instructions are handled in a later pipeline step.
 
 * **Control flow change request:** A control flow change request occurs from the fact that the branch predictor mis-predicted. This can either be a 'real' mis-prediction or a branch which was not recognized as one. In any case we need to correct our action and start fetching from the correct address.
 
@@ -102,17 +104,13 @@ The next PC can originate from the following sources (listed in order of precede
 
 * **Debug:** Debug has the highest order of precedence as it can interrupt any control flow requests. It also the only source of control flow change which can actually happen simultaneously to any other of the forced control flow changes. The debug unit reports the request to change the PC and the PC which the CPU should change to. (not supported in cv32a6-step1)
 
-
 [TO BE CLARIFIED] This unit also takes care of a signal called fetch_enable which purpose is to prevent fetching if not asserted.
-
-
 
 
 Fetch Stage
 ~~~~~~~~~~~
 
 PC generation stage asks the CACHE sub-system the memory fetch corresponding to the next PC.
-
 
 Instruction Fetch stage inputs come from PC Gen stage. Inputs include information about branch prediction (was it a predicted branch? which is the target address? was it predicted to be taken?), current PC (word-aligned if it was a consecutive fetch) and whether this request is valid.
 
@@ -155,7 +153,8 @@ The instr_scan module pre-decodes the fetched instructions, instructions could b
 BHT - Branch History Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When a
+When a branch instruction is valid, the relative information is stored in the Branch History Table.
+
 The Branch History table is a two-bit saturation counter that takes the virtual address of the current fetched instruction by the CACHE. It states whether the current branch request should be taken or not. The two bit counter is updated by the successive execution of the current instructions as shown in the following figure.
 
 .. figure:: ../images/bht.png
@@ -165,6 +164,8 @@ The Branch History table is a two-bit saturation counter that takes the virtual 
 
    BHT saturation
 
+When a branch instruction is detected, the BHT informs whether the PC address is in the BHT. In this case, the BHT predicts whether the branch is taken and provides the corresponding target address.
+
 The BHT can be flushed.
 
 
@@ -173,7 +174,7 @@ BTB - Branch Target Buffer
 
 When a miss prediction happens on a unconditional jumps to a register (JALR instruction), the relative information provided by the EXECUTE stage is logged into the BTB, that is to say the JALR pc and the target address.
 
-The BTB informs whether the input PC address is logged in BTB. In this case, the BTB provides the corresponding target address.
+The BTB informs whether the input PC address is in BTB. In this case, the BTB provides the corresponding target address.
 
 The BTB can be flushed.
 
