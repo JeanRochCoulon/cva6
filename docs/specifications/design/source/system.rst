@@ -13,23 +13,23 @@
 CV32A6-step1 System
 ===================
 
-Decription
-----------
+Description
+-----------
 
-The CV32A6-step1 is a system composed of the subsystems as illustrated in the figure. The processor is a Harvard-based modern architecture. Instructions are issued in-order through the DECODE stage and executed out-of-order but committed in-order.
+The CV32A6-step1 is a system composed of the subsystems as illustrated
+in the figure. The processor is a Harvard-based modern architecture.
+Instructions are issued in-order through the DECODE stage and executed
+out-of-order but committed in-order.
 
-The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation, Instruction Detch, Instruction Decode, Issue stage, Execute stage and Commit stage. At least 6 cycles are needed to execute one instruction.
+The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation,
+Instruction Detch, Instruction Decode, Issue stage, Execute stage and
+Commit stage. At least 6 cycles are needed to execute one instruction.
 
-The processor is Single issue, that means that at maximum one instruction per cyle can be executed. CV32A6-step1 can fetch up to 2 isntruction per cycles when C extension instructions are fetched, but the instruction fetch implements a FIFO which issue at maximum one instruction per cycle.
+The processor is Single issue, that means that at maximum one instruction
+per cyle can be executed. CV32A6-step1 can fetch up to 2 isntruction per
+cycles when C extension instructions are fetched, but the instruction
+fetch implements a FIFO which issue at maximum one instruction per cycle.
 
-The CV32A4-step1 core is fully synthesizable.
-It has been designed mainly for ASIC designs, but FPGA synthesis
-is supported as well.
-
-For ASIC synthesis, the whole design is completely
-synchronous and uses positive-edge triggered flip-flops. The
-core occupies an area of about 80 kGE. The clock frequency can be more
-than 1GHz depending of technology.
 
 
 .. table:: cv32a6-step1 interface signals
@@ -65,14 +65,11 @@ than 1GHz depending of technology.
   | ``axi_resp_i``                  | in | resp_t            | AXI master response interface port                                                                       |
   +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
 
-CVA6 memory interface complies with AXI5 specification including the Atomic_Transactions property support as defined in [AXI] section E1.1.
-
-CVA6 coprocessor interface complies with CV-X-IF protocol specification as defined in [CV-X-IF].
 
 
 
-Functionalities
----------------
+Functionality
+-------------
 
 CV32A6-step1 implements a configuration which allows to connect coprocessor to it through CV-X-IF coprocessor interface, but the lack of MMU and A extension prevent from executing Linux.
 
@@ -153,17 +150,30 @@ CV32A6-step1 implements a configuration which allows to connect coprocessor to i
 
    * - **BP**: Branch Prediction micro-architecture
      - current spec
-     - static
+     - disabled
+
+
+CVA6 memory interface complies with AXI5 specification including the Atomic_Transactions property support as defined in [AXI] section E1.1.
+
+CVA6 coprocessor interface complies with CV-X-IF protocol specification as defined in [CV-X-IF].
+
+The CV32A4-step1 core is fully synthesizable.
+It has been designed mainly for ASIC designs, but FPGA synthesis
+is supported as well.
+
+For ASIC synthesis, the whole design is completely
+synchronous and uses positive-edge triggered flip-flops. The
+core occupies an area of about 80 kGE. The clock frequency can be more
+than 1GHz depending of technology.
 
 
 Architecture
 ------------
 
-The CVA6 architecture is well summarized thanks to the figure extracted from a paper written by F.Zaruba and L.Benini.
-
-.. figure:: ../images/ariane_overview.png
-   :name: CVA6 Architecute
+.. figure:: ../images/CVA6_subsystems.png
+   :name: CVA6 System
    :align: center
    :alt:
 
-   CVA6 Architecture
+   CV32A6-step1 System
+

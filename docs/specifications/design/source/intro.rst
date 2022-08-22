@@ -21,14 +21,14 @@ to describe the CV32A6 configuration which allows to connect coprocessor
 through CV-X-IF but without Linux support, called CV32A6-step1.
 
 
-ISA. :numref:`blockdiagram` shows a block diagram of the core.
+The CVA6 architecture is illustrated in the following figure extracted from a paper written by F.Zaruba and L.Benini.
 
-.. figure:: ../images/CV32E40P_Block_Diagram.png
-   :name: blockdiagram
+.. figure:: ../images/ariane_overview.png
+   :name: CVA6 Architecute
    :align: center
    :alt:
 
-   Block Diagram of CV32E40P RISC-V Core
+   CVA6 Architecture
 
 
 License
