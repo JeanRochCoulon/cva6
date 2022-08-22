@@ -132,3 +132,67 @@ CONTROLLER sub-system can flush PC Generation and Fetch stages. In that case, Fe
 Architecture and Modules
 ------------------------
 
+.. figure:: ../images/frontend_modules.png
+   :name: FRONTEND modules
+   :align: center
+   :alt:
+
+   FRONTEND modules
+
+
+Instr_realign
+~~~~~~~~~~~~~
+
+The 32-bit aligned cache block coming from the CACHE sub-system enters the instr_realign module. This module extracts the instructions from the 32-bit blocks, up to two instructions because it is possible to fetch two instructions when C extension is used. If the instructions are not compressed, it is possible that the instruction is not aligned on the block size but rather interleaved with two cache blocks. In that case, two cache accesses are needed. The instr_realign module provides at maximum one instruction per cycle. Not complete instruction is stored in instr_realign module to be provided in the next cycles.
+
+
+Instr_scan
+~~~~~~~~~~
+
+The instr_scan module pre-decodes the fetched instructions, instructions could be compressed or not. The outputs are used by the branch prediction feature. The instr_scan module tells if the instruction is compressed and provides the intruction type: branch, jump, return, jalr, imm, call or others.
+
+
+BHT - Branch History Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a
+The Branch History table is a two-bit saturation counter that takes the virtual address of the current fetched instruction by the CACHE. It states whether the current branch request should be taken or not. The two bit counter is updated by the successive execution of the current instructions as shown in the following figure.
+
+.. figure:: ../images/bht.png
+   :name: BHT saturation
+   :align: center
+   :alt:
+
+   BHT saturation
+
+The BHT can be flushed.
+
+
+BTB - Branch Target Buffer
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a miss prediction happens on a unconditional jumps to a register (JALR instruction), the relative information provided by the EXECUTE stage is logged into the BTB, that is to say the JALR pc and the target address.
+
+The BTB informs whether the input PC address is logged in BTB. In this case, the BTB provides the corresponding target address.
+
+The BTB can be flushed.
+
+
+
+RAS - Return Address Stack
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the instruction is an unconditional jumps to a known target address (JAL instruction), the next pc after the JAL instruction and the return address are logged into the RAS.
+
+The RAS informs whether the input PC address is logged in RAS. In this case, the RAS provides the corresponding target address.
+
+The RAS can be flushed.
+
+
+
+Instr_queue
+~~~~~~~~~~~
+
+
+
+
