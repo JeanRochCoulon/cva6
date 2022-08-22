@@ -48,8 +48,23 @@ License
   permissions and limitations under the License.
 
 
-Framework
----------
+Standards Compliance
+--------------------
+
+CV32A6-step1 is a standards-compliant 32-bit RISC-V processor.
+
+| To ease the reading, the reference to these specifications can be implicit in the requirements below. For the sake of precision, the requirements identify the versions of RISC-V extensions from these specifications.
+|    **[RVunpriv]** “The RISC-V Instruction Set Manual, Volume I: User-Level ISA, Document Version 20191213”, Editors Andrew Waterman and Krste Asanović, RISC-V Foundation, December 13, 2019.
+|    **[RVpriv]** “The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 20211203”, Editors Andrew Waterman, Krste Asanović and John Hauser, RISC-V Foundation, December 4, 2021.
+|    **[RVdbg]** “RISC-V External Debug Support, Document Version 0.13.2”, Editors Tim Newsome and Megan Wachs, RISC-V Foundation, March 22, 2019.
+|    **[RVcompat]** “RISC-V Architectural Compatibility Test Framework”, https://github.com/riscv-non-isa/riscv-arch-test.
+|    **[AXI]** AXI Specification, https://developer.arm.com/documentation/ihi0022/hc.
+|    **[CV-X-IF]** Placeholder for the CV-X-IF coprocessor interface currently prepared at OpenHW Group; current version in https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/.
+|    **[OpenPiton]** “OpenPiton Microarchitecture Specification”, Princeton University, https://parallel.princeton.edu/openpiton/docs/micro_arch.pdf.
+
+
+Documentation framework
+-----------------------
 
 The framework of this document is inspired by the Common Criteria. The
 Common Criteria for Information Technology Security Evaluation (referred
@@ -63,7 +78,7 @@ Description of the framework:
 * Processor is split into subsystem corresponding to the main modules of the design
 * Subsystems can contain several modules
 * Each subsystem is described in a chapter, which contains the following subchapters: “Description”, “Functionalities”, “Architecture and Modules” and Registers (if any)
-* The subchapter “Description” describes the main features of the submodule, then the interconnections between the current subsystem and the others.
+* The subchapter “Description” describes the main features of the submodule, the interconnections between the current subsystem and the others and the inputs/outputs interface.
 * The subchapter “Functionality” lists in details the subsystem functionalities. Please avoid using the RTL signal names to explain the functionalities.
 * The subchapter “Architecture and Modules” provides a drawing to present the module hierarchy, then the functionalities covered by the module
 * The subchapter “Registers” specifies the subsystem registers if any

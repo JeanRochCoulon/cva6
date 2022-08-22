@@ -23,7 +23,7 @@ OpenHW Group CV32A6-step1 Design specification
    :caption: Contents:
 
    intro
-   processor
+   system
    frontend
    getting_started
    integration
