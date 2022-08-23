@@ -7,22 +7,19 @@
 
    Original Author: Jean-Roch COULON (jean-roch.coulon@thalesgroup.com)
 
-OpenHW Group CV32A6-step1 Design specification
-==============================================
+.. _csrfile:
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+CSRFILE
+=======
 
-   intro
-   system
-   frontend
-   decode
-   issue
-   execute
-   commit
-   caches
-   csrfile
-   axi
-   cvxif
-   glossary
+Description
+-----------
+
+Functionality
+-------------
+
+Architecture and Modules
+------------------------
+
+Registers
+---------

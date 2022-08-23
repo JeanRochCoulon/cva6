@@ -1,18 +1,18 @@
 ..
    Copyright (c) 2020 OpenHW Group
-   
+
    Licensed under the Solderpad Hardware Licence, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
-  
+
    https://solderpad.org/licenses/
-  
+
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-  
+
    SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0
 
 .. _glossary:
@@ -20,6 +20,8 @@
 Glossary
 ========
 
+* **VLEN**: Virtual address lengh
+* **XLEN**: RISC-V processor data lengh
 * **ALU**: Arithmetic/Logic Unit
 * **ASIC**: Application-Specific Integrated Circuit
 * **Byte**: 8-bit data item
@@ -32,10 +34,10 @@ Glossary
 * **Halfword**: 16-bit data item
 * **Halfword aligned address**: An address is halfword aligned if it is divisible by 2
 * **ID**: Instruction Decode
-* **IF**: Instruction Fetch (:ref:`instruction-fetch`)
+* **IF**: Instruction Fetch
 * **ISA**: Instruction Set Architecture
 * **KGE**: kilo gate equivalents (NAND2)
-* **LSU**: Load Store Unit (:ref:`load-store-unit`)
+* **LSU**: Load Store Unit
 * **M-Mode**: Machine Mode (RISC-V Instruction Set Manual, Volume II: Privileged Architecture)
 * **OBI**: Open Bus Interface
 * **PC**: Program Counter
@@ -50,3 +52,4 @@ Glossary
 * **Word**: 32-bit data item
 * **Word aligned address**: An address is word aligned if it is divisible by 4
 * **WPRI**: Reserved Writes Preserve Values, Reads Ignore Values
+
