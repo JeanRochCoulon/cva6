@@ -9,8 +9,8 @@
 
 .. _axi:
 
-AXI
-===
+AXI Protocol Interface
+======================
 
 Description
 -----------

@@ -16,19 +16,17 @@ CV32A6-step1 System
 Description
 -----------
 
-The CV32A6-step1 is a system composed of the subsystems as illustrated
+The CV32A6-step1 is a system composed of the subsystems and protocol interfaces as illustrated
 in the figure. The processor is a Harvard-based modern architecture.
 Instructions are issued in-order through the DECODE stage and executed
-out-of-order but committed in-order.
+out-of-order but committed in-order. The processor is Single issue,
+that means that at maximum one instruction per cycle can be issued to the
+EXECUTE stage.
 
 The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation,
 Instruction Detch, Instruction Decode, Issue stage, Execute stage and
 Commit stage. At least 6 cycles are needed to execute one instruction.
 
-The processor is Single issue, that means that at maximum one instruction
-per cyle can be executed. CV32A6-step1 can fetch up to 2 isntruction per
-cycles when C extension instructions are fetched, but the instruction
-fetch implements a FIFO which issue at maximum one instruction per cycle.
 
 
 
@@ -124,12 +122,8 @@ CV32A6-step1 implements a configuration which allows to connect coprocessor to i
      - [RVpriv]
      - disabled
 
-   * - **CSR**: CSRs
+   * - **CSR**: Control and Status Registers
      - [RVpriv]
-     - enabled
-
-   * - **CV-X-IF**: Coprocessor interface
-     - [CV-X-IF]
      - enabled
 
    * - **I$**: Instruction cache micro-architecture
@@ -150,6 +144,14 @@ CV32A6-step1 implements a configuration which allows to connect coprocessor to i
 
    * - **BP**: Branch Prediction micro-architecture
      - current spec
+     - enabled but without information storage
+
+   * - **AXI**: AXI interface
+     - [CV-X-IF]
+     - enabled
+
+   * - **TRI**: Translation Response Interface (TRI)
+     - [OpenPiton]
      - disabled
 
 

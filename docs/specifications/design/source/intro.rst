@@ -51,16 +51,21 @@ License
 Standards Compliance
 --------------------
 
-CV32A6-step1 is a standards-compliant 32-bit RISC-V processor.
+To ease the reading, the reference to these specifications can be implicit in the requirements below. For the sake of precision, the requirements identify the versions of RISC-V extensions from these specifications.
 
-| To ease the reading, the reference to these specifications can be implicit in the requirements below. For the sake of precision, the requirements identify the versions of RISC-V extensions from these specifications.
-|    **[RVunpriv]** “The RISC-V Instruction Set Manual, Volume I: User-Level ISA, Document Version 20191213”, Editors Andrew Waterman and Krste Asanović, RISC-V Foundation, December 13, 2019.
-|    **[RVpriv]** “The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 20211203”, Editors Andrew Waterman, Krste Asanović and John Hauser, RISC-V Foundation, December 4, 2021.
-|    **[RVdbg]** “RISC-V External Debug Support, Document Version 0.13.2”, Editors Tim Newsome and Megan Wachs, RISC-V Foundation, March 22, 2019.
-|    **[RVcompat]** “RISC-V Architectural Compatibility Test Framework”, https://github.com/riscv-non-isa/riscv-arch-test.
-|    **[AXI]** AXI Specification, https://developer.arm.com/documentation/ihi0022/hc.
-|    **[CV-X-IF]** Placeholder for the CV-X-IF coprocessor interface currently prepared at OpenHW Group; current version in https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/.
-|    **[OpenPiton]** “OpenPiton Microarchitecture Specification”, Princeton University, https://parallel.princeton.edu/openpiton/docs/micro_arch.pdf.
+* **[CVA6req]** “CVA6 requirement specification”, https://github.com/openhwgroup/cva6/blob/master/docs/specifications/cva6_requirement_specification.rst, HASH#767c465.
+* **[RVunpriv]** “The RISC-V Instruction Set Manual, Volume I: User-Level ISA, Document Version 20191213”, Editors Andrew Waterman and Krste Asanović, RISC-V Foundation, December 13, 2019.
+* **[RVpriv]** “The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 20211203”, Editors Andrew Waterman, Krste Asanović and John Hauser, RISC-V Foundation, December 4, 2021.
+* **[RVdbg]** “RISC-V External Debug Support, Document Version 0.13.2”, Editors Tim Newsome and Megan Wachs, RISC-V Foundation, March 22, 2019.
+* **[RVcompat]** “RISC-V Architectural Compatibility Test Framework”, https://github.com/riscv-non-isa/riscv-arch-test.
+* **[AXI]** AXI Specification, https://developer.arm.com/documentation/ihi0022/hc.
+* **[CV-X-IF]** Placeholder for the CV-X-IF coprocessor interface currently prepared at OpenHW Group; current version in https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/.
+* **[OpenPiton]** “OpenPiton Microarchitecture Specification”, Princeton University, https://parallel.princeton.edu/openpiton/docs/micro_arch.pdf.
+
+CV32A6-step1 is a standards-compliant 32-bit processor fully compliant
+with RISC-V specifications: [RVunpriv], [RVpriv] and [RVdbg] and
+passes [RVcompat] compatibility tests, as requested by [GEN-10] in
+[CVA6req].
 
 
 Documentation framework
@@ -88,7 +93,7 @@ Contributors
 ------------
 
 | Jean-Roch Coulon
-  (`*jean-roch.coulon@thalesgroup.com* <mailto:jean-roch.coulon@thalesgroup.com>`__)
+  (`jean-roch.coulon@thalesgroup.com <mailto:jean-roch.coulon@thalesgroup.com>`__)
 | Florian Zaruba
-  (`*florian@openhwgroup.org* <mailto:florian@openhwgroup.org>`__)
+  (`florian@openhwgroup.org <mailto:florian@openhwgroup.org>`__)
 

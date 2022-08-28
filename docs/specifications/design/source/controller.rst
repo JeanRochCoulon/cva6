@@ -7,10 +7,10 @@
 
    Original Author: Jean-Roch COULON (jean-roch.coulon@thalesgroup.com)
 
-.. _commit:
+.. _controller:
 
-COMMIT Sub-System
-=================
+CONTROLLER Sub-System
+=====================
 
 Description
 -----------

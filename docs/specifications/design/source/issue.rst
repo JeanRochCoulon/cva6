@@ -9,8 +9,8 @@
 
 .. _issue:
 
-ISSUE
-=====
+ISSUE Sub-System
+================
 
 Description
 -----------

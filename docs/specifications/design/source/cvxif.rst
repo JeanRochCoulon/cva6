@@ -9,8 +9,8 @@
 
 .. _cvxif:
 
-CVXIF
-=====
+CVXIF Protocol Interface
+========================
 
 Description
 -----------

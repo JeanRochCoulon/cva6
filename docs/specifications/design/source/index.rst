@@ -21,6 +21,7 @@ OpenHW Group CV32A6-step1 Design specification
    issue
    execute
    commit
+   controller
    caches
    csrfile
    axi

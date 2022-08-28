@@ -9,8 +9,8 @@
 
 .. _caches:
 
-CACHES
-======
+CACHES Sub-System
+=================
 
 Description
 -----------
