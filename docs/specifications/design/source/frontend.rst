@@ -418,11 +418,11 @@ Instr_scan
 .. list-table:: instr_scan interface signals
    :header-rows: 1
 
-   * - Signal**
+   * - Signal
      -  IO
-     -  **connection**
-     -  **type**
-     -  **Description**
+     -  Connection
+     -  Type
+     -  Description
 
    * - ``instr_i``
      -  in
@@ -518,11 +518,11 @@ BHT - Branch History Table
 .. list-table:: BHT interface signals
    :header-rows: 1
 
-   * - Signal**
+   * - Signal
      -  IO
-     -  **connection**
-     -  **type**
-     -  **Description**
+     -  Connection
+     -  Type
+     -  Description
 
    * - ``clk_i``
      -  in
@@ -589,11 +589,11 @@ BTB - Branch Target Buffer
 .. list-table:: BTB interface signals
    :header-rows: 1
 
-   * - Signal**
+   * - Signal
      -  IO
-     -  **connection**
-     -  **type**
-     -  **Description**
+     -  Connection
+     -  Type
+     -  Description
 
    * - ``clk_i``
      -  in
@@ -652,11 +652,11 @@ RAS - Return Address Stack
 .. list-table:: RAS interface signals
    :header-rows: 1
 
-   * - Signal**
+   * - Signal
      -  IO
-     -  **connection**
-     -  **type**
-     -  **Description**
+     -  Connection
+     -  Type
+     -  Description
 
    * - ``clk_i``
      -  in
