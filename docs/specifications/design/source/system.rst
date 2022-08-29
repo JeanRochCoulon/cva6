@@ -21,41 +21,78 @@ The CV32A6-step1 is a system composed of the subsystems and protocol interfaces 
 The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation, Instruction Detch, Instruction Decode, Issue stage, Execute stage and Commit stage. At least 6 cycles are needed to execute one instruction.
 
 
+.. list-table:: cv32a6-step1 interface signals
+   :header-rows: 1
 
+   * - Signal
+     - IO
+     - Type
+     - Description
 
-.. table:: cv32a6-step1 interface signals
-  :name: cv32a6-step1 interface signals
+   * - ``clk_i``
+     - in
+     - logic
+     - system clock
 
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **type**          | **Description**                                                                                          |
-  +=================================+====+===================+==========================================================================================================+
-  | ``clk_i``                       | in | logic             | system clock                                                                                             |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | logic             | Asynchronous reset active low                                                                            |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``boot_addr_i``                 | in | logic[VLEN-1:0]   | Reset boot address                                                                                       |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``hart_id_i``                   | in | logic[XLEN-1:0]   | Hart id in a multicore environment (reflected in a CSR)                                                  |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``irq_i``                       | in | logic[1:0]        | Level sensitive IR lines, mip & sip (async)                                                              |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``ipi_i``                       | in | logic             | Inter-processor interrupts (async)                                                                       |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``time_irq_i``                  | in | logic             | Timer interrupt in (async)                                                                               |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``debug_req_i``                 | in | logic             | Debug request (async)                                                                                    |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``rvfi_o``                      | out| trace_port_t      | RISC-V Formal Interface port (RVFI)                                                                      |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``cvxif_req_o``                 | out| cvxif_req_t       | Coprocessor Interface request interface port (CV-X-IF)                                                   |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``cvxif_resp_i``                | in | cvxif_resp_t      | Coprocessor Interface response interface port (CV-X-IF)                                                  |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``axi_req_o``                   | out| req_t             | AXI master request interface port                                                                        |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
-  | ``axi_resp_i``                  | in | resp_t            | AXI master response interface port                                                                       |
-  +---------------------------------+----+-------------------+----------------------------------------------------------------------------------------------------------+
+   * - ``rst_ni``
+     - in
+     - logic
+     - Asynchronous reset active low
 
+   * - ``boot_addr_i``
+     - in
+     - logic[VLEN-1:0]
+     - Reset boot address
+
+   * - ``hart_id_i``
+     - in
+     - logic[XLEN-1:0]
+     - Hart id in a multicore environment (reflected in a CSR)
+
+   * - ``irq_i``
+     - in
+     - logic[1:0]
+     - Level sensitive IR lines, mip & sip (async)
+
+   * - ``ipi_i``
+     - in
+     - logic
+     - Inter-processor interrupts (async)
+
+   * - ``time_irq_i``
+     - in
+     - logic
+     - Timer interrupt in (async)
+
+   * - ``debug_req_i``
+     - in
+     - logic
+     - Debug request (async)
+
+   * - ``rvfi_o``
+     - out
+     - trace_port_t
+     - RISC-V Formal Interface port (RVFI)
+
+   * - ``cvxif_req_o``
+     - out
+     - cvxif_req_t
+     - Coprocessor Interface request interface port (CV-X-IF)
+
+   * - ``cvxif_resp_i``
+     - in
+     - cvxif_resp_t
+     - Coprocessor Interface response interface port (CV-X-IF)
+
+   * - ``axi_req_o``
+     - out
+     - req_t
+     - AXI master request interface port
+
+   * - ``axi_resp_i``
+     - in
+     - resp_t
+     - AXI master response interface port
 
 
 
