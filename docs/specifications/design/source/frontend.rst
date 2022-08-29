@@ -175,8 +175,7 @@ PC gen generates the next program counter. The next PC can originate from the fo
 
 * **Replay instruction fetch:** When the instruction queue is full, the instr_queue module asks the fetch replay and provides the address to be replayed.
 
-* **Return from environment call:** When CSR asks a return from an environment call, the PC is assigned to the successive PC to the one stored in the CSR [m
-     - s]epc register.
+* **Return from environment call:** When CSR asks a return from an environment call, the PC is assigned to the successive PC to the one stored in the CSR [m-s]epc register.
 
 * **Exception/Interrupt:** If an exception (or interrupt, which is in the context of RISC-V systems quite similar) is triggered by the COMMIT, the next PC Gen is assigned to the CSR trap vector base address. The trap vector base address can be different depending on whether the exception traps to S-Mode or M-Mode (user mode exceptions are currently not supported). It is the purpose of the CSR Unit to figure out where to trap to and present the correct address to PC Gen.
 
@@ -212,8 +211,6 @@ Architecture and Modules
 
 Instr_realign
 ~~~~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: instr_realign interface signals
    :header-rows: 1
@@ -285,8 +282,6 @@ Instr_realign
      - Instruction is unaligned
 
 
-**Functionality**
-
 The 32-bit aligned block coming from the CACHE sub-system enters the instr_realign module. This module extracts the instructions from the 32-bit blocks, up to two instructions because it is possible to fetch two instructions when C extension is used. If the instructions are not compressed, it is possible that the instruction is not aligned on the block size but rather interleaved with two cache blocks. In that case, two cache accesses are needed. The instr_realign module provides at maximum one instruction per cycle. Not complete instruction is stored in instr_realign module before being provided in the next cycles.
 
 In case of mispredict, flush, replay or branch predict, the instr_realign is re-initialized, the internal register storing the instruction alignment state is reset.
@@ -294,8 +289,6 @@ In case of mispredict, flush, replay or branch predict, the instr_realign is re-
 
 Instr_queue
 ~~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: instr_realign interface signals
    :header-rows: 1
@@ -409,9 +402,6 @@ Instr_queue
      -  Handshake's ready between FRONTEND (fetch stage) and DECODE
 
 
-
-**Functionality**
-
 The instr_queue receives 32bit block from CACHES to create a valid stream of instructions to be decoded (by DECODE), to be issued (by ISSUE) and executed (by EXECUTE). FRONTEND pushes in FIFO to store the instructions and related information needed in case of mispredict or exception: instructions, instruction control flow type, exception, exception address and preicted address. DECODE pops them when decode stage is ready and indicates to the FRONTEND the instruction has been consummed.
 
 In instruction queue, exception can only correspond to page-fault exception.
@@ -424,8 +414,6 @@ The instruction queue can be flushed.
 
 Instr_scan
 ~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: instr_scan interface signals
    :header-rows: 1
@@ -521,16 +509,11 @@ Instr_scan
      -  Instruction compressed immediat
 
 
-
-**Functionality**
-
 The instr_scan module pre-decodes the fetched instructions, instructions could be compressed or not. The outputs are used by the branch prediction feature. The instr_scan module tells if the instruction is compressed and provides the intruction type: branch, jump, return, jalr, imm, call or others.
 
 
 BHT - Branch History Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: BHT interface signals
    :header-rows: 1
@@ -584,9 +567,6 @@ BHT - Branch History Table
      -  Prediction from bht
 
 
-
-**Functionality**
-
 When a branch instruction is resolved by the EXECUTE, the relative information is stored in the Branch History Table.
 
 The Branch History table is a two-bit saturation counter that takes the virtual address of the current fetched instruction by the CACHE. It states whether the current branch request should be taken or not. The two bit counter is updated by the successive execution of the current instructions as shown in the following figure. The BHT is not updated if processor is in debug mode.
@@ -605,8 +585,6 @@ The BTB is never flushed.
 
 BTB - Branch Target Buffer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: BTB interface signals
    :header-rows: 1
@@ -660,10 +638,6 @@ BTB - Branch Target Buffer
      -  BTB Prediction
 
 
-
-
-**Functionality**
-
 When a unconditional jumps to a register (JALR instruction) is mispredicted by the EXECUTE, the relative information is stored into the BTB, that is to say the JALR PC and the target address. The BTB is not updated if processor is in debug mode.
 
 When a branch instruction is pre-decoded by instr_scan module, the BTB informs whether the input PC address is in BTB. In this case, the BTB provides the corresponding target address.
@@ -674,8 +648,6 @@ The BTB is never flushed.
 
 RAS - Return Address Stack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Interface signals**
 
 .. list-table:: RAS interface signals
    :header-rows: 1
@@ -728,9 +700,6 @@ RAS - Return Address Stack
      -  ras_t
      -  Popped data
 
-
-
-**Functionality**
 
 When an unconditional jumps to a known target address (JAL instruction) is consummed by the instr_queue, the next pc after the JAL instruction and the return address are stored into the RAS.
 
