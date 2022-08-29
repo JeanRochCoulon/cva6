@@ -16,16 +16,9 @@ CV32A6-step1 System
 Description
 -----------
 
-The CV32A6-step1 is a system composed of the subsystems and protocol interfaces as illustrated
-in the figure. The processor is a Harvard-based modern architecture.
-Instructions are issued in-order through the DECODE stage and executed
-out-of-order but committed in-order. The processor is Single issue,
-that means that at maximum one instruction per cycle can be issued to the
-EXECUTE stage.
+The CV32A6-step1 is a system composed of the subsystems and protocol interfaces as illustrated in the figure. The processor is a Harvard-based modern architecture. Instructions are issued in-order through the DECODE stage and executed out-of-order but committed in-order. The processor is Single issue, that means that at maximum one instruction per cycle can be issued to the EXECUTE stage.
 
-The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation,
-Instruction Detch, Instruction Decode, Issue stage, Execute stage and
-Commit stage. At least 6 cycles are needed to execute one instruction.
+The CV32A6-step1 implements a 6-stage pipeline composed of PC Generation, Instruction Detch, Instruction Decode, Issue stage, Execute stage and Commit stage. At least 6 cycles are needed to execute one instruction.
 
 
 
@@ -159,14 +152,9 @@ CVA6 memory interface complies with AXI5 specification including the Atomic_Tran
 
 CVA6 coprocessor interface complies with CV-X-IF protocol specification as defined in [CV-X-IF].
 
-The CV32A4-step1 core is fully synthesizable.
-It has been designed mainly for ASIC designs, but FPGA synthesis
-is supported as well.
+The CV32A4-step1 core is fully synthesizable. It has been designed mainly for ASIC designs, but FPGA synthesis is supported as well.
 
-For ASIC synthesis, the whole design is completely
-synchronous and uses positive-edge triggered flip-flops. The
-core occupies an area of about 80 kGE. The clock frequency can be more
-than 1GHz depending of technology.
+For ASIC synthesis, the whole design is completely synchronous and uses positive-edge triggered flip-flops. The core occupies an area of about 80 kGE. The clock frequency can be more than 1GHz depending of technology.
 
 
 Architecture

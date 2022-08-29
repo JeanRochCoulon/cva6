@@ -15,19 +15,13 @@ FRONTEND Sub-System
 Description
 -----------
 
-The FRONTEND sub-system implements two first stages of the cva6
-pipeline, PC gen and Fetch stages.
+The FRONTEND sub-system implements two first stages of the cva6 pipeline, PC gen and Fetch stages.
 
-PC gen stage is responsible for generating the next
-program counter hosting a Branch Target Buffer (BTB) a Branch History
-Table (BHT) and a Return Address Stack (RAS) to speculate on the branch
-target address.
+PC gen stage is responsible for generating the next program counter hosting a Branch Target Buffer (BTB) a Branch History Table (BHT) and a Return Address Stack (RAS) to speculate on the branch target address.
 
-Fetch stage requests data to the CACHE sub-system, realigns the data to
-store them in instruction queue and transmits the instructions to the DECODE
-sub-system. FRONTEND can fetch up to 2 instructions per cycles when
-C extension instructions is used, but as instruction queue limits the
-data rate, up to one instruction per cycle can be sent to DECODE.
+Fetch stage requests data to the CACHE sub-system, realigns the data to store them in instruction queue and transmits the instructions to the
+DECODE sub-system. FRONTEND can fetch up to 2 instructions per cycles when C extension instructions is used, but as instruction queue limits
+the data rate, up to one instruction per cycle can be sent to DECODE.
 
 The system is connected to:
 
@@ -41,47 +35,47 @@ The system is connected to:
 .. table:: FRONTEND interface signals
   :name: FRONTEND interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | Connection              | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System Clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``debug_mode_i``                | in | CSR                     | logic              | Debug mode                                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | CONTROLLER              | logic              | Fetch flush request                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_bp_i``                  | in | stuck at zero           | logic              | flush branch prediction                                                        |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``boot_addr_i``                 | in | SYSTEM                  | logic[VLEN-1:0]    | Next PC when reset                                                             |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``resolved_branch_i``           | in | EXECUTE                 | bp_resolve_t       | mispredict event and next PC                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``eret_i``                      | in | CSR                     | logic              | Return from exception event                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``epc_i``                       | in | CSR                     | logic[VLEN-1:0]    | Next PC when returning from exception                                          |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``ex_valid_i``                  | in | COMMIT                  | logic              | Exception event                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``trap_vector_base_i``          | in | CSR                     | logic[VLEN-1:0]    | Next PC when jumping into exception                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``set_pc_commit_i``             | in | CONTROLLER              | logic              | Set the PC coming from COMMIT as next PC                                       |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``pc_commit_i``                 | in | COMMIT                  | logic[VLEN-1:0]    | Next PC when flushing pipeline                                                 |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``set_debug_pc_i``              | in | CSR                     | logic              | Debug event                                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``icache_dreq_o``               | out| CACHES                  | icache_dreq_i_t    | Handshake between CACHE and FRONTEND (fetch)                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``icache_dreq_i``               | in | CACHES                  | icache_dreq_o_t    | Handshake between CACHE and FRONTEND (fetch)                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_o``               | out| DECODE                  | fetch_entry_t      | Handshake's data between FRONTEND (fetch) and DECODE                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_valid_o``         | out| DECODE                  | logic              | Handshake's valid between FRONTEND (fetch) and DECODE                          |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_ready_i``         | in | DECODE                  | logic              | Handshake's ready between FRONTEND (fetch) and DECODE                          |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | Connection              | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System Clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``debug_mode_i``          | in  | CSR                     | logic              | Debug mode                                                          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | CONTROLLER              | logic              | Fetch flush request                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_bp_i``            | in  | stuck at zero           | logic              | flush branch prediction                                             |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``boot_addr_i``           | in  | SYSTEM                  | logic[VLEN-1:0]    | Next PC when reset                                                  |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``resolved_branch_i``     | in  | EXECUTE                 | bp_resolve_t       | mispredict event and next PC                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``eret_i``                | in  | CSR                     | logic              | Return from exception event                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``epc_i``                 | in  | CSR                     | logic[VLEN-1:0]    | Next PC when returning from exception                               |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``ex_valid_i``            | in  | COMMIT                  | logic              | Exception event                                                     |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``trap_vector_base_i``    | in  | CSR                     | logic[VLEN-1:0]    | Next PC when jumping into exception                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``set_pc_commit_i``       | in  | CONTROLLER              | logic              | Set the PC coming from COMMIT as next PC                            |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``pc_commit_i``           | in  | COMMIT                  | logic[VLEN-1:0]    | Next PC when flushing pipeline                                      |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``set_debug_pc_i``        | in  | CSR                     | logic              | Debug event                                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``icache_dreq_o``         | out | CACHES                  | icache_dreq_i_t    | Handshake between CACHE and FRONTEND (fetch)                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``icache_dreq_i``         | in  | CACHES                  | icache_dreq_o_t    | Handshake between CACHE and FRONTEND (fetch)                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_o``         | out | DECODE                  | fetch_entry_t      | Handshake's data between FRONTEND (fetch) and DECODE                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_valid_o``   | out | DECODE                  | logic              | Handshake's valid between FRONTEND (fetch) and DECODE               |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_ready_i``   | in  | DECODE                  | logic              | Handshake's ready between FRONTEND (fetch) and DECODE               |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 Functionality
@@ -117,20 +111,11 @@ All program counters are logical addressed. If the logical to physical mapping c
 Fetch Stage
 ~~~~~~~~~~~
 
-Fetch stage controls by handshake protocol the CACHE sub-system.
-Fetched data are 32-bit block with word aligned address.
-A granted fetch is realigned into instr_realign module to produce
-instructions. Then instructions are pushed into an internal instruction
-FIFO called instruction queue (instr_queue module). This module stores
-the instructions and related information which allow to identify the
-outstanding transactions. In the case CONTROLLER decides to flush the
-instruction queue, the outstanding transactions are discarded.
+Fetch stage controls by handshake protocol the CACHE sub-system. Fetched data are 32-bit block with word aligned address. A granted fetch is realigned into instr_realign module to produce instructions. Then instructions are pushed into an internal instruction FIFO called instruction queue (instr_queue module). This module stores the instructions and related information which allow to identify the outstanding transactions. In the case CONTROLLER decides to flush the instruction queue, the outstanding transactions are discarded.
 
 The Fetch stage asks the MMU to translate the requested address.
 
-Memory and MMU can feedback potential exceptions generated by the memory
-fetch request. They can be bus errors, invalid accesses or instruction
-page faults.
+Memory and MMU can feedback potential exceptions generated by the memory fetch request. They can be bus errors, invalid accesses or instruction page faults.
 
 
 
@@ -148,140 +133,141 @@ Architecture and Modules
 Instr_realign
 ~~~~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: instr_realign interface signals
   :name: instr_realign interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **Connection**          | **Type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | combinatory             | logic              | Flush                                                                          |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``serving_unaligned_o``         | out| combinatory             | logic              |                                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``valid_i``                     | in | CACHES (reg)            | logic              | 32-bit block is valid                                                          |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``address_i``                   | in | CACHES (reg)            | logic[VLEN-1:0]    | 32-bit block address                                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``data_i``                      | in | CACHES (reg)            | logic[31:0]        | 32-bit block                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``valid_o``                     | out| combinatory             | logic[1:0]         | instruction is valid                                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``addr_o``                      | out| combinatory             |logic[1:0][VLEN-1:0]| Instruction address                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``instr_o``                     | out| instr_scan, instr_queue | logic[1:0][31:0]   | Instruction                                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **Connection**          | **Type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | combinatory             | logic              | Instr_align Flush                                                   |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``valid_i``               | in  | CACHES (reg)            | logic              | 32-bit block is valid                                               |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``address_i``             | in  | CACHES (reg)            | logic[VLEN-1:0]    | 32-bit block address                                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``data_i``                | in  | CACHES (reg)            | logic[31:0]        | 32-bit block                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``valid_o``               | out | combinatory             | logic[1:0]         | instruction is valid                                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``addr_o``                | out | combinatory             |logic[1:0][VLEN-1:0]| Instruction address                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``instr_o``               | out | instr_scan, instr_queue | logic[1:0][31:0]   | Instruction                                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``serving_unaligned_o``   | out | combinatory             | logic              | Instruction is unaligned                                            |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
 
 The 32-bit aligned block coming from the CACHE sub-system enters the instr_realign module. This module extracts the instructions from the 32-bit blocks, up to two instructions because it is possible to fetch two instructions when C extension is used. If the instructions are not compressed, it is possible that the instruction is not aligned on the block size but rather interleaved with two cache blocks. In that case, two cache accesses are needed. The instr_realign module provides at maximum one instruction per cycle. Not complete instruction is stored in instr_realign module before being provided in the next cycles.
 
+In case of mispredict, flush, replay or branch predict, the instr_realign is re-initialized, the internal register storing the instruction alignment state is reset.
+
 
 Instr_queue
 ~~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: instr_queue interface signals
   :name: instr_queue interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **connection**          | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | CONTROLLER              | logic              | Flush request                                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``valid_i``                     | in | instr_realign           | logic[1:0]         | Instruction is valid                                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``instr_i``                     | in | instr_realign           | logic[1:0][31:0]   | Instruction                                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``addr_i``                      | in | instr_realign           |logic[1:0][VLEN-1:0]| Instruction address                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``predict_address_i``           | in | combinatory             | logic[VLEN-1:0]    | Instruction predict address                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``cf_type_i``                   | in | combinatory             | logic[1:0]         | Control flow instruction type                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``ready_o``                     | out| CACHES                  | logic              | Handshake'ready between CACHE and FRONTEND (fetch stage)                       |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``consumed_o``                  | out| combinatory             | logic[1:0]         |                                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``exception_i``                 | in | CACHES (reg)            | logic              |                                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``exception_addr_i``            | in | CACHES (reg)            | logic[VLEN-1:0]    |                                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``replay_o``                    | out| combinatory             | logic              | Replay instruction because one of the FIFO was already full                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``replay_addr_o``               | out| combinatory             | logic[VLEN-1:0]    | Address at which to replay the fetch                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_o``               | out| DECODE                  | fetch_entry_t      | Handshake's data between FRONTEND (fetch stage) and DECODE                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_valid_o``         | out| DECODE                  | logic              | Handshake's valid between FRONTEND (fetch stage) and DECODE                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``fetch_entry_ready_i``         | in | DECODE                  | logic              | Handshake's ready between FRONTEND (fetch stage) and DECODE                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **connection**          | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | CONTROLLER              | logic              | Fetch flush request                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``valid_i``               | in  | instr_realign           | logic[1:0]         | Instruction is valid                                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``instr_i``               | in  | instr_realign           | logic[1:0][31:0]   | Instruction                                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``addr_i``                | in  | instr_realign           |logic[1:0][VLEN-1:0]| Instruction address                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``predict_address_i``     | in  | combinatory             | logic[VLEN-1:0]    | Instruction predict address                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``cf_type_i``             | in  | combinatory             | logic[1:0]         | Instruction control flow type                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``ready_o``               | out | CACHES                  | logic              | Handshake's ready between CACHE and FRONTEND (fetch stage)          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``consumed_o``            | out | combinatory             | logic[1:0]         | Indicates instructions consummed, that is to say popped by DECODE   |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``exception_i``           | in  | CACHES (reg)            | logic              | Exception                                                           |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``exception_addr_i``      | in  | CACHES (reg)            | logic[VLEN-1:0]    | Exception address                                                   |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``replay_o``              | out | combinatory             | logic              | Replay instruction because one of the FIFO was already full         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``replay_addr_o``         | out | combinatory             | logic[VLEN-1:0]    | Address at which to replay the fetch                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_o``         | out | DECODE                  | fetch_entry_t      | Handshake's data between FRONTEND (fetch stage) and DECODE          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_valid_o``   | out | DECODE                  | logic              | Handshake's valid between FRONTEND (fetch stage) and DECODE         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``fetch_entry_ready_i``   | in  | DECODE                  | logic              | Handshake's ready between FRONTEND (fetch stage) and DECODE         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
 
-The instr_queue receives 32bit block from CACHES to create a valid stream of instructions to be decoded (by DECODE), to be issued (by ISSUE) and executed (by EXECUTE). A FIFO is implemented to store the instructions and related informaiton needed in case of mispredict: instructions, target addresses and exception that will change the control flow. DECODE pops them when decode stage is ready.
+The instr_queue receives 32bit block from CACHES to create a valid stream of instructions to be decoded (by DECODE), to be issued (by ISSUE) and executed (by EXECUTE). FRONTEND pushes in FIFO to store the instructions and related information needed in case of mispredict or exception: instructions, instruction control flow type, exception, exception address and preicted address. DECODE pops them when decode stage is ready and indicates to the FRONTEND the instruction has been consummed.
 
-Exception can only correspond to page-fault exception.
+In instruction queue, exception can only correspond to page-fault exception.
 
-In the case the FIFO is full, a replay request is sent to inform the fetch mechanism to replay the fetch.
+If the instruction queue is full, a replay request is sent to inform the fetch mechanism to replay the fetch.
 
-The instruction queue cannot be flushed, all instructions which enter the instruction queue will be executed.
+The instruction queue can be flushed.
 
-[TO BE CLARIFIED] consumed_o ?
 
 
 Instr_scan
 ~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: instr_scan interface signals
   :name: instr_scan interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **connection**          | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``instr_i``                     | in | instr_realign           | logic[31:0]        | Instruction to be predecoded                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_return_o``                | out| combinatory             | logic              | Return instruction                                                             |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_call_o``                  | out| combinatory             | logic              | JAL instruction                                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_branch_o``                | out| combinatory             | logic              | Branch instruction                                                             |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_jalr_o``                  | out| combinatory             | logic              | JALR instruction                                                               |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_jump_o``                  | out| combinatory             | logic              | unconditional jump instruction                                                 |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvi_imm_o``                   | out| combinatory             | logic[VLEN-1:0]    | Instruction immediat                                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_branch_o``                | out| combinatory             | logic              | Branch compressed instruction                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_jump_o``                  | out| combinatory             | logic              | unconditional jump compressed instruction                                      |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_jr_o``                    | out| combinatory             | logic              | JR compressed instruction                                                      |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_return_o``                | out| combinatory             | logic              | Return compressed instruction                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_jalr_o``                  | out| combinatory             | logic              | JALR compressed instruction                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_call_o``                  | out| combinatory             | logic              | JAL compressed instruction                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rvc_imm_o``                   | out| combinatory             | logic[VLEN-1:0]    | Instruction compressed immediat                                                |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **connection**          | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``instr_i``               | in  | instr_realign           | logic[31:0]        | Instruction to be predecoded                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_return_o``          | out | combinatory             | logic              | Return instruction                                                  |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_call_o``            | out | combinatory             | logic              | JAL instruction                                                     |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_branch_o``          | out | combinatory             | logic              | Branch instruction                                                  |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_jalr_o``            | out | combinatory             | logic              | JALR instruction                                                    |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_jump_o``            | out | combinatory             | logic              | unconditional jump instruction                                      |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvi_imm_o``             | out | combinatory             | logic[VLEN-1:0]    | Instruction immediat                                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_branch_o``          | out | combinatory             | logic              | Branch compressed instruction                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_jump_o``            | out | combinatory             | logic              | unconditional jump compressed instruction                           |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_jr_o``              | out | combinatory             | logic              | JR compressed instruction                                           |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_return_o``          | out | combinatory             | logic              | Return compressed instruction                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_jalr_o``            | out | combinatory             | logic              | JALR compressed instruction                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_call_o``            | out | combinatory             | logic              | JAL compressed instruction                                          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rvc_imm_o``             | out | combinatory             | logic[VLEN-1:0]    | Instruction compressed immediat                                     |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
@@ -292,35 +278,35 @@ The instr_scan module pre-decodes the fetched instructions, instructions could b
 BHT - Branch History Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: BHT interface signals
   :name: BHT interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **connection**          | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | stuck at zero           | logic              | Flush request                                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``debug_mode_i``                | in | CSR                     | logic              | Debug mode                                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``vpc_i``                       | in | CACHES (reg)            | logic[VLEN-1:0]    | Virtual PC                                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``bht_update_i``                | in | EXECUTE                 | bht_update_t       | Update btb with resolved address                                               |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``bht_prediction_o``            | out| combinatory             | bht_prediction_t   | Prediction from bht                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **connection**          | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | stuck at zero           | logic              | Flush request                                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``debug_mode_i``          | in  | CSR                     | logic              | Debug mode state                                                    |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``vpc_i``                 | in  | CACHES (reg)            | logic[VLEN-1:0]    | Virtual PC                                                          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``bht_update_i``          | in  | EXECUTE                 | bht_update_t       | Update btb with resolved address                                    |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``bht_prediction_o``      | out | combinatory             | bht_prediction_t   | Prediction from bht                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
 
-When a branch instruction is valid, the relative information is stored in the Branch History Table.
+When a branch instruction is resolved by the EXECUTE, the relative information is stored in the Branch History Table.
 
-The Branch History table is a two-bit saturation counter that takes the virtual address of the current fetched instruction by the CACHE. It states whether the current branch request should be taken or not. The two bit counter is updated by the successive execution of the current instructions as shown in the following figure.
+The Branch History table is a two-bit saturation counter that takes the virtual address of the current fetched instruction by the CACHE. It states whether the current branch request should be taken or not. The two bit counter is updated by the successive execution of the current instructions as shown in the following figure. The BHT is not updated if processor is in debug mode.
 
 .. figure:: ../images/bht.png
    :name: BHT saturation
@@ -329,7 +315,7 @@ The Branch History table is a two-bit saturation counter that takes the virtual 
 
    BHT saturation
 
-When a branch instruction is detected, the BHT informs whether the PC address is in the BHT. In this case, the BHT predicts whether the branch is taken and provides the corresponding target address.
+When a branch instruction is pre-decoded by instr_scan module, the BHT informs whether the PC address is in the BHT. In this case, the BHT predicts whether the branch is taken and provides the corresponding target address.
 
 The BTB is never flushed.
 
@@ -337,35 +323,35 @@ The BTB is never flushed.
 BTB - Branch Target Buffer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: BTB interface signals
   :name: BTB interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **connection**          | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | stuck at zero           | logic              | Flush request                                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``debug_mode_i``                | in | CSR                     | logic              | Debug mode                                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``vpc_i``                       | in | CACHES (reg)            | logic              | Virtual PC                                                                     |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``btb_update_i``                | in | EXECUTE                 | btb_update_t       | Update btb with resolved address                                               |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``btb_prediction_o``            | out| combinatory             | btb_prediction_t   | Prediction from btb                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **connection**          | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | stuck at zero           | logic              | Flush request state                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``debug_mode_i``          | in  | CSR                     | logic              | Debug mode                                                          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``vpc_i``                 | in  | CACHES (reg)            | logic              | Virtual PC                                                          |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``btb_update_i``          | in  | EXECUTE                 | btb_update_t       | Update BTB with resolved address                                    |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``btb_prediction_o``      | out | combinatory             | btb_prediction_t   | BTB Prediction                                                      |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
 
-When a miss prediction happens on a unconditional jumps to a register (JALR instruction), the relative information provided by the EXECUTE stage is logged into the BTB, that is to say the JALR pc and the target address.
+When a unconditional jumps to a register (JALR instruction) is mispredicted by the EXECUTE, the relative information is stored into the BTB, that is to say the JALR PC and the target address. The BTB is not updated if processor is in debug mode.
 
-The BTB informs whether the input PC address is in BTB. In this case, the BTB provides the corresponding target address.
+When a branch instruction is pre-decoded by instr_scan module, the BTB informs whether the input PC address is in BTB. In this case, the BTB provides the corresponding target address.
 
 The BTB is never flushed.
 
@@ -374,35 +360,35 @@ The BTB is never flushed.
 RAS - Return Address Stack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ports**
+**Interface signals**
 
 .. table:: RAS interface signals
   :name: RAS interface signals
 
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | **Signal**                      | IO | **connection**          | **type**           | **Description**                                                                |
-  +=================================+====+=========================+====================+================================================================================+
-  | ``clk_i``                       | in | SYSTEM                  | logic              | System clock                                                                   |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``rst_ni``                      | in | SYSTEM                  | logic              | Asynchronous reset active low                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``flush_i``                     | in | Stuck at zero           | logic              | Flush request                                                                  |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``push_i``                      | in | combinatory             | logic              | Push address in RAS                                                            |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``pop_i``                       | in | combinatory             | logic              | Pop address from RAS                                                           |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``data_i``                      | in | combinatory             | logic[VLEN-1:0]    | Data to be pushed                                                              |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
-  | ``data_o``                      | out| combinatory             | ras_t              | Popped data                                                                    |
-  +---------------------------------+----+-------------------------+--------------------+--------------------------------------------------------------------------------+
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | **Signal**                | IO  | **connection**          | **type**           | **Description**                                                     |
+  +===========================+=====+=========================+====================+=====================================================================+
+  | ``clk_i``                 | in  | SYSTEM                  | logic              | System clock                                                        |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``rst_ni``                | in  | SYSTEM                  | logic              | Asynchronous reset active low                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``flush_i``               | in  | Stuck at zero           | logic              | Flush request                                                       |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``push_i``                | in  | combinatory             | logic              | Push address in RAS                                                 |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``pop_i``                 | in  | combinatory             | logic              | Pop address from RAS                                                |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``data_i``                | in  | combinatory             | logic[VLEN-1:0]    | Data to be pushed                                                   |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
+  | ``data_o``                | out | combinatory             | ras_t              | Popped data                                                         |
+  +---------------------------+-----+-------------------------+--------------------+---------------------------------------------------------------------+
 
 
 **Functionality**
 
-When the instruction is an unconditional jumps to a known target address (JAL instruction), the next pc after the JAL instruction and the return address are logged into the RAS.
+When an unconditional jumps to a known target address (JAL instruction) is consummed by the instr_queue, the next pc after the JAL instruction and the return address are stored into the RAS.
 
-The RAS informs whether the input PC address is logged in RAS. In this case, the RAS provides the corresponding target address.
+When a branch instruction is pre-decoded by instr_scan module, the RAS informs whether the input PC address is in RAS. In this case, the RAS provides the corresponding target address.
 
-The BTB is never flushed.
+The RAS is never flushed.
 

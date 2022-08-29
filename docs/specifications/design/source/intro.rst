@@ -62,21 +62,14 @@ To ease the reading, the reference to these specifications can be implicit in th
 * **[CV-X-IF]** Placeholder for the CV-X-IF coprocessor interface currently prepared at OpenHW Group; current version in https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/.
 * **[OpenPiton]** “OpenPiton Microarchitecture Specification”, Princeton University, https://parallel.princeton.edu/openpiton/docs/micro_arch.pdf.
 
-CV32A6-step1 is a standards-compliant 32-bit processor fully compliant
-with RISC-V specifications: [RVunpriv], [RVpriv] and [RVdbg] and
-passes [RVcompat] compatibility tests, as requested by [GEN-10] in
+CV32A6-step1 is a standards-compliant 32-bit processor fully compliant with RISC-V specifications: [RVunpriv], [RVpriv] and [RVdbg] and passes [RVcompat] compatibility tests, as requested by [GEN-10] in
 [CVA6req].
 
 
 Documentation framework
 -----------------------
 
-The framework of this document is inspired by the Common Criteria. The
-Common Criteria for Information Technology Security Evaluation (referred
-to as Common Criteria or CC) is an international standard (ISO/IEC 15408)
-for computer security certification. The objective of this document is to
-provide enough information to allow the RTL modification (by designers)
-and the RTL verification (by verificators).
+The framework of this document is inspired by the Common Criteria. The Common Criteria for Information Technology Security Evaluation (referred to as Common Criteria or CC) is an international standard (ISO/IEC 15408) for computer security certification. The objective of this document is to provide enough information to allow the RTL modification (by designers) and the RTL verification (by verificators).
 
 Description of the framework:
 
@@ -94,6 +87,6 @@ Contributors
 
 | Jean-Roch Coulon
   (`jean-roch.coulon@thalesgroup.com <mailto:jean-roch.coulon@thalesgroup.com>`__)
-| Florian Zaruba
-  (`florian@openhwgroup.org <mailto:florian@openhwgroup.org>`__)
+
+[TO BE COMPLETED]
 
