@@ -71,3 +71,20 @@ html_static_path = []
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+
+multiproject_projects = {
+    "cva6": {
+        "use_config_file": False,
+        "config": {
+            "project": "Read the Docs CVA6 requirement documentation",
+        },
+    },
+    "cv32a6-step1": {
+        "use_config_file": False,
+        "config": {
+            "project": "Read the Docs cv32a6-step1 design specification",
+        },
+    },
+}
+
+docset = get_project(multiproject_projects)
