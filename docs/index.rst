@@ -17,7 +17,7 @@ OpenHW Group CV32A6-step1 Design specification
    intro
    system
    frontend
-   decode
+   source/decode
    issue
    execute
    commit
