@@ -14,8 +14,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-from multiproject.utils import get_project
-
 
 # -- Project information -----------------------------------------------------
 
@@ -73,22 +71,3 @@ html_static_path = []
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-
-multiproject_projects = {
-    "cva6": {
-        "use_config_file": False,
-        "path": "docs",
-        "config": {
-            "project": "Read the Docs CVA6 requirement documentation",
-        },
-    },
-    "cv32a6-step1": {
-        "use_config_file": False,
-        "path": "specifications/design",
-        "config": {
-            "project": "Read the Docs cv32a6-step1 design specification",
-        },
-    },
-}
-
-docset = get_project(multiproject_projects)
