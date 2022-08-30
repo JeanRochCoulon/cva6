@@ -84,8 +84,8 @@ multiproject_projects = {
     },
     "cv32a6-step1": {
         "use_config_file": False,
-        "path": "docs/specifications/design",
-                "config": {
+        "path": "specifications/design",
+        "config": {
             "project": "Read the Docs cv32a6-step1 design specification",
         },
     },
