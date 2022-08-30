@@ -77,13 +77,15 @@ html_static_path = []
 multiproject_projects = {
     "cva6": {
         "use_config_file": False,
+        "path": "docs",
         "config": {
             "project": "Read the Docs CVA6 requirement documentation",
         },
     },
     "cv32a6-step1": {
         "use_config_file": False,
-        "config": {
+        "path": "docs/specifications/design",
+                "config": {
             "project": "Read the Docs cv32a6-step1 design specification",
         },
     },
