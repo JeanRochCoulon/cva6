@@ -202,8 +202,19 @@ The CV32A4-step1 core is fully synthesizable. It has been designed mainly for AS
 For ASIC synthesis, the whole design is completely synchronous and uses positive-edge triggered flip-flops. The core occupies an area of about 80 kGE. The clock frequency can be more than 1GHz depending of technology.
 
 
-Architecture
-------------
+Architecture and Sub-systems
+----------------------------
+
+The cv32a6-step1 system is composed of 8 sub-systems.
+
+.. figure:: ../images/subsystems.png
+   :name: CVA6 subsystem
+   :align: center
+   :alt:
+
+   CV32A6 subsystem
+
+Connections between subsystems are illustrated in the following block diagram. FRONTEND, DECODE, ISSUE, EXECUTE, COMMIT and CONTROLLER are part of the pipeline. And CACHES implements the instruction and data caches and CSRFILE contains registers.
 
 .. figure:: ../images/CVA6_subsystems.png
    :name: CVA6 System
