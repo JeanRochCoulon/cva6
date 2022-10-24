@@ -79,20 +79,17 @@ Global signals (Section A2.1)
 
 
 .. list-table::
-   :widths: 15 15 15 55
+   :widths: 15 15 55
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
      - **Description**
    * - **ACLK**
      - Clock source
-     - Required
      - |  Global clock signal. Synchronous signals are sampled on the rising edge of the global clock.
    * - **WDATA**
      - Reset source
-     - Required
      - | Global reset signal. This signal is active-LOW.
 
 
@@ -103,93 +100,89 @@ Write address channel signals (Section A2.2)
 
 
 .. list-table::
-   :widths: 15 15 15 15 40
+   :widths: 15 15 15 40
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
-     - **Supported?**
+     - **Support**
      - **Description**
    * - **AWID**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Identification tag for a write transaction.
-       | CVA6 gives the id depending on the type of transaction See 5. Transaction Identifiers.
+       | CVA6 gives the id depending on the type of transaction See 5.
+       | Transaction Identifiers.
    * - **AWADDR**
      - M
-     - Required
      - Yes
      - | The address of the first transfer in a write transaction.
    * - **AWLEN**
      - M
-     - Optional
-     - Yes
-     - | Length, the exact number of data transfers in a write transaction. This information determines the number of data transfers
-         associated with the address.
+     - | Yes
+       | (optional)
+     - | Length, the exact number of data transfers in a write transaction.
+       | This information determines the number of data transfers associated with the address.
        | All write transactions performed by CVA6 are of length 1. (AWLEN = 0b00000000)
    * - **AWSIZE**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Size, the number of bytes in each data transfer in a write transaction
        | See 3.1 Address structure
    * - **AWBURST**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Burst type, indicates how address changes between each transfer in a write transaction.
        | All write transactions performed by CVA6 are of burst type INCR. (AWBURST = 0b01)
    * - **AWLOCK**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Provides information about the atomic characteristics of a write transaction
    * - **AWCACHE**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Indicates how a write transaction is required to progress through a system.
        | the memory is always of type Device Non-bufferable. (AWCACHE = 0b0000)
    * - **AWPROT**
      - M
-     - Required
      - Yes
      - | Protection attributes of a write transaction: privilege, security level, and access type.
        | The value of AWPROT is always 0b000
    * - **AWQOS**
      - M
-     - Optional
-     - No
+     - | No
+       | (optional)
      - | Quality of Service identifier for a write transaction
        | AWQOS = 0b0000
    * - **AWREGION**
      - M
-     - Optional
-     - No
+     - | No
+       | (optional)
      - | Region indicator for a write transaction.
        | AWREGION = 0b0000
    * - **AWUSER**
      - M
-     - Optional
-     - No
+     - | No
+       | (optional)
      - | User-defined extension for the write address channel.
        | AWUSER = 0b00
    * - **AWATOP**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | AWATOP indicates the Properties of the Atomic Operation used for a write transaction
        | See 7- AMBA 5 Atomic Operation
    * - **AWVALID**
      - M
-     - Required
      - Yes
      - | Indicates that the write address channel signals are valid.
    * - **AWREADY**
      - S
-     - Required
      - Yes
      - | Indicates that a transfer on the write address channel can be accepted.
 
@@ -202,49 +195,44 @@ Write data channel signals (Section A2.3)
    Table 2.3 shows the AXI write data channel signals. Unless the description indicates otherwise, a signal can take any parammeters if is supported.
 
 .. list-table::
-   :widths: 15 15 15 15 40
+   :widths: 15 15 15 40
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
-     - **Supported?**
+     - **Support**
      - **Description**
    * - **WID**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | The ID tag of the write data transfer.
        | CVA6 gives the id depending on the type of transaction See 5. Transaction Identifiers.
    * - **WDATA**
      - M
-     - Required
      - Yes
      - | Write data.
    * - **WSTRB**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Write strobes, indicate which byte lanes hold valid data
        | See 3.3 Read and write data structure
    * - **WLAST**
      - M
-     - Required
      - Yes
      - | Indicates whether this is the last data transfer in a write transaction.
    * - **WUSER**
      - M
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | User-defined extension for the write data channel.
    * - **WVALID**
      - M
-     - Required
      - Yes
      - | Indicates that the write data channel signals are valid.
    * - **WREADY**
      - S
-     - Required
      - Yes
      - | Indicates that a transfer on the write data channel can be accepted.
 
@@ -258,40 +246,36 @@ Write Response Channel signals (Section A2.4)
 
 
 .. list-table::
-   :widths: 15 15 15 15 40
+   :widths: 15 15 15 40
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
-     - **Supported?**
+     - **Support**
      - **Description**
    * - **BID**
      - S
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | Identification tag for a write response.
        | CVA6 gives the id depending on the type of transaction See 5. Transaction Identifiers.
    * - **BRESP**
      - S
-     - Required
      - Yes
      - | Write response, indicates the status of a write transaction.
        | See 3.4 Read and write response structure
    * - **BUSER**
      - S
-     - Optional
-     - No
+     - | No
+       | (optional)
      - | User-defined extension for the write response channel.
        | BUSER= 0b00
    * - **BVALID**
      - S
-     - Required
      - Yes
      - | Indicates that the write response channel signals are valid.
    * - **BREADY**
      - M
-     - Required
      - Yes
      - | Indicates that a transfer on the write response channel can be accepted.
 
@@ -305,88 +289,85 @@ Read address channel signals (Section A2.5)
 
 
 .. list-table::
-   :widths: 15 15 15 15 40
+   :widths: 15 15 15 40
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
-     - **Supported?**
+     - **Support**
      - **Description**
    * - **ARID**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Identification tag for a read transaction.
        | CVA6 gives the id depending on the type of transaction See 5. Transaction Identifiers.
    * - **ARADDR**
      - M
-     - Required
      - | Yes
      - | The address of the first transfer in a readtransaction.
    * - **ARLEN**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Length, the exact number of data transfers in a read transaction. This information determines the number of data transfers
          associated with the address.
        | All read transactions performed by CVA6 are of length less or equal to ICACHE_LINE_WIDTH/64
    * - **ARSIZE**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Size, the number of bytes in each data transfer in a read transaction
        | See 3.1 Address structure
    * - **ARBURST**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Burst type, indicates how address changes between each transfer in a read transaction.
        | All Read transactions performed by CVA6 are of burst type INCR. (ARBURST = 0b01)
    * - **ARLOCK**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Provides information about the atomic characteristics of a read transaction
    * - **ARCACHE**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Indicates how a read transaction is required to progress through a system.
        | The memory is always of type Device Non-bufferable. (ARCACHE = 0b0000)
    * - **ARPROT**
      - M
-     - Required
      - | Yes
      - | Protection attributes of a read transaction: privilege, security level, and access type.
        | The value of ARPROT is always 0b000
    * - **ARQOS**
      - M
-     - Optional
      - | No
+       | (optional)
      - | Quality of Service identifier for a read transaction
        | ARQOS= 0b00
    * - **ARREGION**
      - M
-     - Optional
      - | No
+       | (optional)
      - | Region indicator for a read transaction.
        | ARREGION= 0b00
    * - **ARUSER**
      - M
-     - Optional
      - | No
+       | (optional)
      - | User-defined extension for the read address channel.
        | ARUSER= 0b00
    * - **ARVALID**
      - M
-     - Optional
      - | Yes
+       | (optional)
      - | Indicates that the read address channel signals are valid.
    * - **ARREADY**
      - S
-     - Optional
      - | Yes
+       | (optional)
      - | Indicates that a transfer on the read address channel can be accepted.
 
 
@@ -399,44 +380,39 @@ Read data channel signals (Section A2.6)
 
 
 .. list-table::
-   :widths: 15 15 15 15 40
+   :widths: 15 15 15 40
    :header-rows: 1
 
    * - **Signal**
      - **Src**
-     - **Required?**
-     - **Supported?**
+     - **Support**
      - **Description**
    * - **RID**
      - S
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | The ID tag of the read data transfer.
        | CVA6 gives the id depending on the type of transaction See 5. Transaction Identifiers.
    * - **RDATA**
      - S
-     - Required
      - Yes
      - | Read data.
    * - **RLAST**
      - S
-     - Required
      - Yes
      - | Indicates whether this is the last data transfer in a read transaction.
    * - **RUSER**
      - S
-     - Optional
-     - Yes
+     - | Yes
+       | (optional)
      - | User-defined extension for the read data channel.
        | Not supported. (RUSER= 0b00)
    * - **RVALID**
      - S
-     - Required
      - Yes
      - | Indicates that the read data channel signals are valid.
    * - **RREADY**
      - M
-     - Required
      - Yes
      - | Indicates that a transfer on the read data channel can be accepted.
 
