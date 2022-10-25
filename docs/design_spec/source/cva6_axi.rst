@@ -14,6 +14,10 @@ AXI
 
 Introduction
 ------------
+   In this specification, We describe in detail the restriction that apply to the supported features.
+
+   In order to understand what happen in the AXI memory interface of CVA6, it is necessary to read AXI protocol specification (you will find the link below) and this document.
+
 
 About the AXI4 protocol
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,10 +53,13 @@ AXI4 and CVA6
 
    The AXI bus protocol is used with the CVA6 processor as a memory interface. Since the processor is the one that initiates the connection with the memory, it will have a master interface to send requests to the slave, which will be the memory.
 
-   To recover the entire feature supported by CVA6, we choose to use AMBA AXI4 specification, with the Atomic Operation feature from AXI5.
+   To recover the entire feature supported by CVA6, we choose to use AMBA AXI4 specification and the Atomic Operation feature from AXI5. With restriction that apply to some features.
 
    This doesn’t mean that all the full set of signals available on an AXI interface are supported by the CVA6, But the required AXI signals are implemented.
 
+   Supported AXI4 features are defined in AXI Protocol Specification sections: A3, A4, A5, A6 and A7.
+
+   Supported AXI5 feature are defined in AXI Protocol Specification section: E1.1.
 
 
 
@@ -68,6 +75,7 @@ Signal Description (Section A2)
 
    In the following tables, the *Src* column tells whether the signal is driven by Manager ou Subordinate.
 
+   the AXI required and optional signals, and the default signals values that apply when an optional signal is not implemented are defined in AXI Protocol Specification section A9.3.
 
 
 
